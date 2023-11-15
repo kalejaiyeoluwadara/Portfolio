@@ -1,0 +1,19 @@
+.box{
+   border-radius: 50% 20%/ 10% 40%;
+}
+
+#root{
+   overflow-x: hidden;
+}
+@media screen and (max-width: 767px) {
+   .par{
+      background-color: red;
+      width: 100%;
+      gap: 10px;
+   }
+   .mob{
+      transform: translate(72px, -144px);
+      display: flex;
+      flex-direction: row;
+   }
+}

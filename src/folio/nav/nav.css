@@ -1,0 +1,16 @@
+.shad{
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.352);
+}
+.round{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+.glassb{
+    background-color: rgba(17, 24, 39, 0.608);
+    backdrop-filter: blur(10px);
+}

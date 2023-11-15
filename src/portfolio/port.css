@@ -1,0 +1,12 @@
+/* .box{
+    border-left: 1px solid black;
+    padding-left: 30px;
+    height: auto;
+} */
+
+.line{
+    height: 190px;
+    margin-left: 20px;
+    width: 1px;
+    background: black;
+}
