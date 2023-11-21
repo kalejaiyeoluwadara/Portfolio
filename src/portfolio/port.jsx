@@ -44,7 +44,11 @@ function Port() {
     const [state, setState] = React.useState(0);
 
   return (
-    <div id="portfolio" className="flex relative items-center justify-center">
+    <motion.div 
+      initial={{opacity:0,y:200}}
+      whileInView={{opacity:1,y:0}}
+      transition={{duration:0.6}}
+    id="portfolio" className="flex relative items-center justify-center">
       <div className="h-[auto]  sm:w-[80%] w-screen relative  justify-start items-center flex flex-col gap-10">
         <Head h1={"Portfolio"} p={"Most recent works"} />
 
@@ -59,7 +63,7 @@ function Port() {
           <Cont state={state} setState={setState} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

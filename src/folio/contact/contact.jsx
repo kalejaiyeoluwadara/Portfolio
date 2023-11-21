@@ -1,9 +1,20 @@
 import React from 'react'
 import img from "/img2.svg";
 import { VscSend } from "react-icons/vsc";
+import { motion } from 'framer-motion';
 function Contact() {
   return (
-    <div
+    <motion.div
+    initial={{
+      scale:0.4
+    }}
+    whileInView={{
+      scale:1
+    }}
+    transition={{
+      duration:0.6,
+      ease:'easeIn'
+    }}
       id="contact"
       className="flex items-center  px-2 sm:px-0 sm:h-[50vh] h-[auto] sm:mt-18 mt-20 justify-center"
     >
@@ -26,7 +37,7 @@ function Contact() {
           <img className="h-[300px] w-[200px]" src={img} alt="" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

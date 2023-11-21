@@ -24,7 +24,7 @@ function About({darkmode}) {
             <motion.img
               initial={{opacity:0,y:200}}
               whileInView={{opacity:1,y:0}}
-              transition={{duration:0.7}}
+              transition={{duration:0.4}}
               src={img}
               className="sm:h-[250px] h-[160px] w-[100%] sm:w-[400px] rounded-xl "
               alt=""

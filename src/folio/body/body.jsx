@@ -3,15 +3,26 @@ import img from '/img2.svg'
 import {BsGithub,BsLinkedin,BsTwitter,BsArrowDownShort} from 'react-icons/bs'
 import {VscSend} from 'react-icons/vsc'
 import './body.css'
-import {motion,AnimatePresence} from 'framer-motion'
+import {motion,AnimatePresence, easeIn, spring} from 'framer-motion'
 function Body({darkmode,setDarkMode}) {
   return (
     <motion.div
+    initial={{
+      opacity:0
+    }}
+    animate={{
+      opacity:1,
+    }}
+    transition={{
+      duration:0.7,
+      ease:'easeInOut'
+    }}
       id="home"
       className="flex sm:items-center items-start  sm:justify-center"
     >
       <div className=" flex relative   mt-12 sm:mt-[200px] sm:h-[screen] sm:-translate-y-[120px] -translate-y-20 h-[90vh] items-center justify-center sm:justify-center sm:items-center gap-8 sm:gap-[190px] sm:px-0 px-6 w-[100%] sm:w-[80%]">
-        <motion.div className="mob  px-8 sm:px-0 flex flex-col gap-8">
+        <motion.div       
+        className="mob  px-8 sm:px-0 flex flex-col gap-8">
           <a href="https://github.com/kalejaiyeoluwadara">
             <BsGithub
               size={25}
@@ -65,13 +76,25 @@ function Body({darkmode,setDarkMode}) {
               </button>
             </a>
           </div>
-          <div className="box sm:h-[300px] h-[200px] ml-12 sm:w-[300px] w-[200px] bg-blue-700 flex items-center justify-center ">
+          <motion.div
+             initial={{
+              y:-500
+            }}
+            whileInView={{
+              y:0,
+            }}
+            transition={{
+              // duration:0.6,
+              type:'spring',
+              // ease:'ease'
+            }}
+          className="box sm:h-[300px] h-[200px] ml-12 sm:w-[300px] w-[200px] bg-blue-700 flex items-center justify-center ">
             <img
               src={img}
               className="sm:h-[600px] h-[300px]  sm:w-[600px] w-[300px] -rotate-1 -translate-y-1 "
               alt=""
             />
-          </div>
+          </motion.div>
           <a href="#about">
             <p className="absolute cursor-pointer hover:text-blue-700 duration-300 flex items-center justify-center -bottom-[60px] left-0">
               scroll down <BsArrowDownShort className="text-blue-" />

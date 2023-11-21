@@ -6,10 +6,27 @@ import {
 } from "react-icons/ai";
 import {motion} from 'framer-motion'
 function Modal({data,name,setModal,darkmode}) {
+
   return (
     <motion.div
+    exit={{
+      opacity:0,
+    }}
+    initial={{
+      opacity:0,
+    }}
+    animate={{
+      opacity:1,
+    }}
+    transition={{
+      duration: 0.35,
+      // ease:'ease',
+    }}
       className="modal h-screen sm:h-screen w-full fixed top-0  z-30 flex items-center justify-center "
-      exit={{
+     
+    >
+      <motion.div
+       exit={{
         y: "-100vh",
       }}
       initial={{
@@ -22,8 +39,7 @@ function Modal({data,name,setModal,darkmode}) {
         duration: 0.3,
         // ease:'ease',
       }}
-    >
-      <div
+      layout
         className={` flex flex-col gap-4  h-[auto] w-[380px] px-6 py-5 rounded-md ${
           darkmode ? "bg-gray-800 text-white":'bg-white'
         } `}
@@ -54,7 +70,7 @@ function Modal({data,name,setModal,darkmode}) {
             </div>
           );
         })}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

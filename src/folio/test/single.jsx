@@ -9,9 +9,17 @@ function Single({darkmode}) {
       whileTap={{
         scale:0.9
       }}
-      transition={{
-        duration:0.3
+      initial={{
+        x:100
       }}
+      whileInView={{
+        x:0,
+        transition:{
+          duration:0.5,
+          ease:'easeIn'
+        }
+      }}
+     
       className="flex gap-2  flex-col  h-[250px] justify-between px-6 py-6 rounded-md w-[450px] ">
         {/* innercard */}
         <div className="flex gap-4 justify-between  h-[auto]  py-4 rounded-md w-[90%] ">
