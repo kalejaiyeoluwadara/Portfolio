@@ -17,6 +17,7 @@ function Body({darkmode,setDarkMode}) {
       duration:0.7,
       ease:'easeInOut'
     }}
+    layout
       id="home"
       className="flex sm:items-center items-start  sm:justify-center"
     >
@@ -79,6 +80,9 @@ function Body({darkmode,setDarkMode}) {
           <motion.div
              initial={{
               y:-500
+            }}
+            animate={{
+              y:0
             }}
             whileInView={{
               y:0,

@@ -6,7 +6,7 @@ function Contact() {
   return (
     <motion.div
     initial={{
-      scale:0.4
+      scale:0.8
     }}
     whileInView={{
       scale:1
