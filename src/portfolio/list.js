@@ -30,6 +30,11 @@ const list = [
     info: 'Advanced todo app adaptable to all devices(features light and dark mode) with , ui components and animated interactions.',
     img: '/todo.jpg',
     link: "https://card-dusky-eight.vercel.app/",
+}, {
+    name: 'Whatsapp Clone',
+    info: 'Whatsapp Clone adaptable to mobile devices with, ui components and animated interactions.',
+    img: '/whats.jpg',
+    link: "https://whatsapp-clone-qnqgrx1hz-kalejaiyeoluwadara.vercel.app/",
 },
     {
         name:'CountryMania',
@@ -49,12 +54,7 @@ const list = [
          img: '/sh.jpg',
          link: "https://sneakerstore-ten.vercel.app/",
      },
-      {
-          name: 'Whatsapp Clone',
-          info: 'Whatsapp Clone adaptable to mobile devices with, ui components and animated interactions.',
-          img: '/whats.jpg',
-          link: "https://whatsapp-clone-qnqgrx1hz-kalejaiyeoluwadara.vercel.app/",
-      },
+     
        {
            name: 'Rock, paper, sciss...',
            info: 'Web game adaptable to all devices with, ui components and animated interactions.',
