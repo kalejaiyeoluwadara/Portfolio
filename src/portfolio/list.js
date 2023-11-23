@@ -53,7 +53,7 @@ const list = [
           name: 'Whatsapp Clone',
           info: 'Whatsapp Clone adaptable to mobile devices with, ui components and animated interactions.',
           img: '/whats.jpg',
-          link: "https://portfolio-3v84.vercel.app/",
+          link: "https://whatsapp-clone-qnqgrx1hz-kalejaiyeoluwadara.vercel.app/",
       },
        {
            name: 'Rock, paper, sciss...',
