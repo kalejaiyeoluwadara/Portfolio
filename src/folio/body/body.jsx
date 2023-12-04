@@ -24,22 +24,22 @@ function Body({darkmode,setDarkMode}) {
       <div className=" flex relative   mt-12 sm:mt-[200px] sm:h-[screen] sm:-translate-y-[150px] -translate-y-20 h-[90vh] items-center justify-center sm:justify-center sm:items-center gap-8 sm:gap-[190px] sm:px-0 px-6 w-[100%] sm:w-[80%]">
         <motion.div       
         className="mob  px-8 sm:px-0 flex flex-col gap-8">
-          <a href="https://github.com/kalejaiyeoluwadara">
+          <a href="https://github.com/kalejaiyeoluwadara" target="_blank" >
             <BsGithub
               size={25}
-              className={`text-blue-700 ${darkmode && "text-blue-400"}`}
+              className={` ${darkmode ? "text-blue-600 ": "text-gray-700"}`}
             />
           </a>
-          <a href="https://www.linkedin.com/in/oluwadara-kalejaiye-346095260">
+          <a href="https://www.linkedin.com/in/oluwadara-kalejaiye-346095260" target="_blank">
             <BsLinkedin
               size={25}
-              className={`text-blue-700 ${darkmode && "text-blue-400"}`}
+              className={` ${darkmode ? "text-blue-600 ": "text-gray-700"}`}
             />
           </a>
-          <a href="https://twitter.com/dara_kalejaiye?t=PkQCkUQ202_3DCeNUhNLuw&s=09">
+          <a href="https://twitter.com/dara_kalejaiye?t=PkQCkUQ202_3DCeNUhNLuw&s=09" target="_blank">
             <BsTwitterX
               size={25}
-              className={`text-blue-700 ${darkmode && "text-blue-400"}`}
+              className={` ${darkmode ? "text-blue-600 ": "text-gray-700"}`}
             />
           </a>
         </motion.div>
