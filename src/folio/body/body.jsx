@@ -1,6 +1,6 @@
 import React from 'react'
 import img from '/img2.svg'
-import {BsGithub,BsLinkedin,BsTwitter,BsArrowDownShort} from 'react-icons/bs'
+import {BsGithub,BsLinkedin,BsTwitterX,BsTwitter,BsArrowDownShort} from 'react-icons/bs'
 import {VscSend} from 'react-icons/vsc'
 import './body.css'
 import {motion,AnimatePresence, easeIn, spring} from 'framer-motion'
@@ -37,7 +37,7 @@ function Body({darkmode,setDarkMode}) {
             />
           </a>
           <a href="https://twitter.com/dara_kalejaiye?t=PkQCkUQ202_3DCeNUhNLuw&s=09">
-            <BsTwitter
+            <BsTwitterX
               size={25}
               className={`text-blue-700 ${darkmode && "text-blue-400"}`}
             />
