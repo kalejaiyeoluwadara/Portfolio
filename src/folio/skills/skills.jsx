@@ -13,10 +13,18 @@ const SkillBar = ({ type, percentage }) => {
         <p className="opacity-80">{percentage}%</p>
       </div>
       <div className="w-full h-[6px] bg-gray-200 rounded-full">
-        <div
+        <motion.div
+        initial={{
+          width:0
+        }}
+        whileInView={{
+          width:`${percentage}%`
+        }}
+        transition={{duration:1}}
+
           style={{ width: `${percentage}%` }}
           className="h-full bg-indigo-600 rounded-full"
-        ></div>
+        />
       </div>
     </div>
   );
@@ -235,9 +243,9 @@ function Skill() {
                     }}
                     className="flex flex-col justify-start items-start sm:items-end  sm:justify-end"
                   >
-                    <SkillBar type={"Node"} percentage={70} />
+                    <SkillBar type={"Node"} percentage={60} />
                     <SkillBar type={"Express"} percentage={40} />
-                    <SkillBar type={"Firebase"} percentage={10} />
+                    <SkillBar type={"Firebase"} percentage={70} />
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -35,7 +35,7 @@ function Single({state,setState}) {
       initial={{opacity:0}}
       animate={{opacity:1,x:0}}
       transition={{duration:0.6}}
-      exit={{opacity:0,x:'-100%'}}
+      exit={{opacity:0,x:'100%'}}
       layout='true' className="flex mt-12  gap-8 items-center relative  sm:w-full sm:justify-around justify-center">
         {/* mob */}
         <div className="flex sm:flex-row sm:gap-[50px] flex-col-reverse items-center justify-center">

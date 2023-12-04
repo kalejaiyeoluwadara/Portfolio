@@ -14,6 +14,7 @@
    .mob{
       transform: translate(72px, -144px);
       display: flex;
-      flex-direction: row;
+      
+      flex-direction: column;
    }
 }

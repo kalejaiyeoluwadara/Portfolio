@@ -19,7 +19,7 @@ function Modal({data,name,setModal,darkmode}) {
       opacity:1,
     }}
     transition={{
-      duration: 0.35,
+      duration: 1,
       // ease:'ease',
     }}
       className="modal h-screen sm:h-screen w-full fixed top-0  z-30 flex items-center justify-center "

@@ -21,7 +21,7 @@ function Body({darkmode,setDarkMode}) {
       id="home"
       className="flex sm:items-center items-start  sm:justify-center"
     >
-      <div className=" flex relative   mt-12 sm:mt-[200px] sm:h-[screen] sm:-translate-y-[120px] -translate-y-20 h-[90vh] items-center justify-center sm:justify-center sm:items-center gap-8 sm:gap-[190px] sm:px-0 px-6 w-[100%] sm:w-[80%]">
+      <div className=" flex relative   mt-12 sm:mt-[200px] sm:h-[screen] sm:-translate-y-[150px] -translate-y-20 h-[90vh] items-center justify-center sm:justify-center sm:items-center gap-8 sm:gap-[190px] sm:px-0 px-6 w-[100%] sm:w-[80%]">
         <motion.div       
         className="mob  px-8 sm:px-0 flex flex-col gap-8">
           <a href="https://github.com/kalejaiyeoluwadara">
@@ -45,7 +45,9 @@ function Body({darkmode,setDarkMode}) {
         </motion.div>
         <div className="flex   sm:w-[100%] flex-col-reverse sm:flex-row relative">
           <div className="flex sm:w-[400px]  w-screen flex-col gap-2 mt-6">
-            <h1
+            {/*section*/}
+           <div className="mb-2">
+           <h1
               className={`font-bold text-gray-800 sm:text-[50px] sm:text text-[33px]  ${
                 darkmode && " text-white"
               } `}
@@ -58,7 +60,7 @@ function Body({darkmode,setDarkMode}) {
               } `}
             >
               Frontend developer
-            </h3>
+            </h3></div>
             <p
               className={`sm:w-[100%] w-[80%]  text-black sm:text-[16px] text-[16px] opacity-[0.7] font-medium  ${
                 darkmode && " text-white"
@@ -73,7 +75,7 @@ function Body({darkmode,setDarkMode}) {
             h-[50px] w-[140px] text-[14px]
             flex items-center justify-around  sm:h-[50px] sm:w-[150px] sm:mt-[40px] mt-[30px] text-white font-bold rounded-md"
               >
-                Contact Me <VscSend size={20} className="font-[900]" />
+                Contact Me <VscSend size={20} className="font-[900]  " />
               </button>
             </a>
           </div>
