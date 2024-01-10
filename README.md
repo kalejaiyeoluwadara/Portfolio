@@ -10,4 +10,4 @@ Who doesn't need a portfolio 😅, this is a React + Firebase project that displ
 ## Project Setup
 run ```npm install```
 run ```npm start```
-# Do well to leave a start 🌟✨
+# Do well to leave a star 🌟✨
