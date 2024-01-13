@@ -1,47 +1,43 @@
-import React from 'react'
-import {BsCheck} from 'react-icons/bs'
-import {
-  
-  AiOutlineClose,
-} from "react-icons/ai";
-import {motion} from 'framer-motion'
-function Modal({data,name,setModal,darkmode}) {
-
+import React from "react";
+import { BsCheck } from "react-icons/bs";
+import { AiOutlineClose } from "react-icons/ai";
+import { motion } from "framer-motion";
+function Modal({ data, name, setModal, darkmode }) {
   return (
     <motion.div
-    exit={{
-      opacity:0,
-    }}
-    initial={{
-      opacity:0,
-    }}
-    animate={{
-      opacity:1,
-    }}
-    transition={{
-      duration: 1,
-      // ease:'ease',
-    }}
-      className="modal h-screen sm:h-screen w-full fixed top-0  z-30 flex items-center justify-center "
-     
-    >
-      <motion.div
-       exit={{
-        y: "-100vh",
+      exit={{
+        opacity: 0,
       }}
       initial={{
-        y: "-100vh",
+        opacity: 0,
       }}
       animate={{
-        y: 0,
+        opacity: 1,
       }}
       transition={{
-        duration: 0.3,
-        // ease:'ease',
+        duration: 1,
+        // ease: "easeInOut",
       }}
-      layout
+      className="modal h-screen sm:h-screen w-full fixed top-0  z-30 flex items-center justify-center "
+    >
+      <motion.div
+        exit={{
+          y: "-100vh",
+        }}
+        initial={{
+          y: "-100vh",
+        }}
+        animate={{
+          y: 0,
+        }}
+        transition={{
+          delay: 0.5,
+          duration: 0.3,
+          // ease:'ease',
+        }}
+        layout
         className={` flex flex-col gap-4  h-[auto] w-[380px] px-6 py-5 rounded-md ${
-          darkmode ? "bg-gray-800 text-white":'bg-white'
+          darkmode ? "bg-gray-800 text-white" : "bg-white"
         } `}
       >
         <div className="flex justify-between items-start pt-3">
@@ -75,4 +71,4 @@ function Modal({data,name,setModal,darkmode}) {
   );
 }
 
-export default Modal
+export default Modal;

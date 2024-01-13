@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import Head from "../head";
-import { BsChevronUp,BsChevronDown } from "react-icons/bs";
+import { BsChevronUp, BsChevronDown } from "react-icons/bs";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { CiServer } from "react-icons/ci";
-import {motion,AnimatePresence} from 'framer-motion'
+import { motion, AnimatePresence } from "framer-motion";
 import Control from "../control";
 const SkillBar = ({ type, percentage }) => {
   return (
-    <div  className="w-[300px] flex flex-col gap-2 mb-4">
+    <div className="w-[300px] flex flex-col gap-2 mb-4">
       <div className="flex w-full justify-between">
         <h4 className="font-semibold">{type}</h4>
         <p className="opacity-80">{percentage}%</p>
       </div>
       <div className="w-full h-[6px] bg-gray-200 rounded-full">
         <motion.div
-        initial={{
-          width:0
-        }}
-        whileInView={{
-          width:`${percentage}%`
-        }}
-        transition={{duration:1}}
-
+          initial={{
+            width: 0,
+          }}
+          whileInView={{
+            width: `${percentage}%`,
+          }}
+          transition={{ duration: 1 }}
           style={{ width: `${percentage}%` }}
           className="h-full bg-indigo-600 rounded-full"
         />
@@ -33,10 +32,11 @@ const SkillBar = ({ type, percentage }) => {
 const Section = ({ name, yearsOfExperience }) => {
   return (
     <motion.div
-    initial={{opacity:0,x:200}}
-    whileInView={{opacity:1,x:0}}
-    transition={{duration:0.7}}
-    className="flex items-center justify-center gap-3 mb-10">
+      initial={{ opacity: 0, x: 200 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7 }}
+      className="flex items-center justify-center gap-3 mb-10"
+    >
       {name === "Frontend developer" && (
         <span className="text-4xl text-indigo-600">{"{ }"}</span>
       )}
@@ -50,7 +50,8 @@ const Section = ({ name, yearsOfExperience }) => {
       <div className="flex flex-col">
         <h1 className="font-semibold text-lg opacity-80">{name}</h1>
         <p className="font-medium text-base opacity-80">
-          More than {yearsOfExperience} {yearsOfExperience <= 1 ? "year" : "years"}
+          More than {yearsOfExperience}{" "}
+          {yearsOfExperience <= 1 ? "year" : "years"}
         </p>
       </div>
     </motion.div>
@@ -58,9 +59,9 @@ const Section = ({ name, yearsOfExperience }) => {
 };
 
 function Skill() {
-    const [fr,setFr] = useState(false);
-    const [ds, setDs] = useState(false);
-    const [br, setBr] = useState(false);
+  const [fr, setFr] = useState(false);
+  const [ds, setDs] = useState(false);
+  const [br, setBr] = useState(false);
   return (
     <div id="sk" className="flex items-center mt-10  justify-center">
       <div className="h-[auto] sm:w-[80%] w-[100%] sm:px-0 px-4 relative justify-start items-center flex flex-col gap-10">
@@ -93,7 +94,7 @@ function Skill() {
               </div>
               <AnimatePresence>
                 {fr && (
-                  <motion.div                  
+                  <motion.div
                     className="flex flex-col items-end justify-end"
                     initial={{
                       x: -60,
@@ -120,8 +121,10 @@ function Skill() {
                     }}
                   >
                     <SkillBar type={"HTML"} percentage={90} />
-                    <SkillBar type={"CSS"} percentage={80} />
-                    <SkillBar type={"JS"} percentage={80} />
+                    <SkillBar type={"CSS"} percentage={70} />
+                    <SkillBar type={"Tailwind"} percentage={75} />
+                    <SkillBar type={"Javascript"} percentage={80} />
+                    <SkillBar type={"TypeScript"} percentage={60} />
                     <SkillBar type={"React"} percentage={70} />
                   </motion.div>
                 )}
