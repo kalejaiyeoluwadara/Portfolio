@@ -80,7 +80,7 @@ function Single({state,setState}) {
                   // y:300
                 }}
                 src={list[state].img}
-                className="h-[250px] top-0 left-0 w-[90%] sm:w-[400px] rounded-xl "
+                className="h-[250px] top-0 object-cover left-0 w-[90%] sm:w-[400px] rounded-xl "
                 alt=""
               />
           </div>

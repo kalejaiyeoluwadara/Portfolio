@@ -4,10 +4,10 @@ import './services.css'
 import Head from '../head'
 function Services({modal,setModal,setData,data}) {
   return (
-    <div id="ser" className="flex items-center  justify-center">
+    <div id="ser" className="flex items-center sm:mt-0 mt-12 justify-center">
       <div className="sm:h-[80vh] h-auto mb-8 sm:mb-0 w-[80%] relative justify-start items-center flex flex-col gap-10">
         <Head h1={"Services"} p={"What I offer"} />
-        <div className="flex sm:flex-row flex-col gap-12 mt-10 w-full">
+        <div className="flex sm:flex-row flex-col gap-12 mt-8 w-full">
           <Single
             setData={setData}
             modal={modal}

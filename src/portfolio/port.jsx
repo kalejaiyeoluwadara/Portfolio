@@ -49,7 +49,7 @@ function Port() {
       whileInView={{opacity:1,y:0}}
       transition={{duration:0.6}}
     id="portfolio" className="flex relative items-center justify-center">
-      <div className="h-[auto]  sm:w-[80%] w-screen relative  justify-start items-center flex flex-col gap-10">
+      <div className="h-[auto] sm:mt-20 sm:w-[80%] w-screen relative  justify-start items-center flex flex-col gap-10">
         <Head h1={"Portfolio"} p={"Most recent works"} />
 
         {/* single */}
