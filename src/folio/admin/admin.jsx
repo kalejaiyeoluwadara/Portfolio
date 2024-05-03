@@ -61,7 +61,7 @@ function Admin() {
         <Contact darkmode={darkmode} />
         <Testimonials darkmode={darkmode} />
         {/* <Input darkmode={darkmode} /> */}
-        <Form/>
+        <Form darkmode={darkmode} />
       </div>
       {width <= 600 && <Mobile darkmode={darkmode} setDarkMode={setDarkMode} />}
     </div>
