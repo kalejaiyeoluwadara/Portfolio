@@ -8,7 +8,7 @@ function Testimonials({darkmode}) {
     <motion.div
    
     id="portfolio" className="flex items-center mt-20 justify-center">
-      <div className="h-[70vh] w-[80%] relative  justify-start items-center flex flex-col gap-10">
+      <div className="sm:h-[70vh] w-[80%] relative  justify-start items-center flex flex-col gap-10">
         <Head h1={"Testimonials"} p={"My clients saying"} />
 
         <motion.div

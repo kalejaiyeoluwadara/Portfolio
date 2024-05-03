@@ -39,7 +39,7 @@ const Nav = ({darkmode,setDarkMode}) =>{
                 Portfolio
               </p>
             </a>
-            <a href="#contact">
+            <a href="#cont">
               <p className="text:bg-indigo-7 opacity-[0.8] duration-500 font-[600] cursor-pointer active:text-indigo-500 hover:text-indigo-500">
                 Contactme
               </p>
