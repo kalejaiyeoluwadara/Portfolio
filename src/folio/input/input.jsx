@@ -64,7 +64,7 @@ function Input() {
           onChange={handleChange}
           id="msg"
           cols="30"
-          className="rounded-md text-black outline-none font-[500] px-3 py-2 sm:w-[400px] w-[90%] h-[250px] bg-gray-200"
+          className="rounded-md text-black outline-none font-[500] px-3 py-2 sm:w-[400px] w-[90%] h-[90px] bg-gray-200"
           rows="10"
         ></textarea>
         <motion.button 

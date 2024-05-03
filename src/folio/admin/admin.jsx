@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Services from '../services/services';
 import Testimonials from '../test/test';
 import Mobile from '../nav/mobile';
+import Form from '../input/form';
 function Admin() {
    const [modal, setModal] = useState(false);
    const [data, setData] = useState(0);
@@ -59,7 +60,8 @@ function Admin() {
         <Port darkmode={darkmode} />
         <Contact darkmode={darkmode} />
         <Testimonials darkmode={darkmode} />
-        <Input darkmode={darkmode} />
+        {/* <Input darkmode={darkmode} /> */}
+        <Form/>
       </div>
       {width <= 600 && <Mobile darkmode={darkmode} setDarkMode={setDarkMode} />}
     </div>

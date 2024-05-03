@@ -26,7 +26,7 @@ function Contact() {
           <p className="text-white w-[99%] sm:w-[330px]">
             Contact me and a get a 30% discount on your new project
           </p>
-          <a href="#input">
+          <a href="#cont">
             <button className="flex bg-white text-indigo-900 px-2 py-3 gap-2 rounded-md font-[500] text-[20] ">
               Contact Me
               <VscSend size={25} />
