@@ -1,6 +1,8 @@
 import React from 'react'
 import { VscSend } from "react-icons/vsc";
 import { motion, AnimatePresence } from "framer-motion";
+import { IoArrowUp } from "react-icons/io5";
+import { MdArrowOutward } from "react-icons/md";
 function Form({darkmode}) {
   return (
     <main
@@ -8,16 +10,18 @@ function Form({darkmode}) {
       className="w-screen  sm:px-8 mt-10 sm:mt-20 min-h-[100vh] flex flex-col items-center justify-center gap-8 "
     >
       <section className="sm:w-[80%] w-[90%] flex flex-col items-center justify-center sm:py-0  h-[120px] sm:h-[150px] border-[2px] rounded-[8px] sm:rounded-[20px] border-gray-200 ">
-        <p className="text-[15px]">Back To Home</p>
+        <a href="#home">
+          <p className="text-[15px] flex gap-1 ">
+            <IoArrowUp size={20} /> Back To Home
+          </p>
+        </a>
         <h1 className="text-[40px] font-[700] ">Contact ME</h1>
       </section>
-
 
       <section className="flex my-3 flex-col w-full items-center justify-center sm:text-[40px] text-[25px] font-[700] ">
         <h2>Craft Your Dream Project</h2>
         <h2>with Me </h2>
       </section>
-
 
       <section className="w-full flex flex-col gap-8 items-center justify-center">
         <section className=" gap-12 flex sm:flex-row flex-col justify-between items-center ">
@@ -84,11 +88,11 @@ function Form({darkmode}) {
             whileTap={{
               scale: 0.9,
             }}
-            className="flex capitalize bg-blue-600 mt-6 text-white px-4 py-3  gap-2 rounded-md font-[500] text-[20] "
+            className="flex capitalize bg-white mt-6 text-black px-4 py-3  gap-2 rounded-[25px] shadow-xl  font-[500] text-[20] "
           >
             {/* {!btn ? "Send message" : "Message sent"} */}
             Submit
-            <VscSend size={25} />
+            <MdArrowOutward size={25} />
           </motion.button>
         </section>
       </section>
