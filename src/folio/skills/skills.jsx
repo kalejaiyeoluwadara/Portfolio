@@ -5,6 +5,8 @@ import { MdOutlineDesignServices } from "react-icons/md";
 import { CiServer } from "react-icons/ci";
 import { motion, AnimatePresence } from "framer-motion";
 import Control from "../control";
+
+// Skills component
 const SkillBar = ({ type, percentage }) => {
   return (
     <div className="w-[300px] flex flex-col gap-2 mb-4">
@@ -29,6 +31,8 @@ const SkillBar = ({ type, percentage }) => {
   );
 };
 
+
+// Categories component
 const Section = ({ name, yearsOfExperience }) => {
   return (
     <motion.div
@@ -58,6 +62,10 @@ const Section = ({ name, yearsOfExperience }) => {
   );
 };
 
+
+
+
+// Main Component
 function Skill() {
   const [fr, setFr] = useState(false);
   const [ds, setDs] = useState(false);
@@ -126,6 +134,7 @@ function Skill() {
                     <SkillBar type={"Javascript"} percentage={80} />
                     <SkillBar type={"TypeScript"} percentage={60} />
                     <SkillBar type={"React"} percentage={70} />
+                    <SkillBar type={"Next Js"} percentage={60} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -186,6 +195,7 @@ function Skill() {
                     }}
                   >
                     <SkillBar type={"Figma"} percentage={80} />
+                    <SkillBar type={"Blender"} percentage={65} />
                     <SkillBar type={"Photoshop"} percentage={70} />
                   </motion.div>
                 )}
@@ -249,6 +259,69 @@ function Skill() {
                     <SkillBar type={"Node"} percentage={60} />
                     <SkillBar type={"Express"} percentage={40} />
                     <SkillBar type={"Firebase"} percentage={70} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* New section */}
+          <div className="flex flex-col w-[350px]">
+            <div className="flex flex-col w-full gap-2 items-end">
+              <div className="flex justify-between w-full">
+                <Section name={"Web Scrapping"} yearsOfExperience={1} />
+                <motion.div
+                  whileTap={{
+                    scale: 0.95,
+                  }}
+                  onClick={() => {
+                    setFr(!fr);
+                  }}
+                >
+                  {fr ? (
+                    <BsChevronUp
+                      size={20}
+                      className="text-indigo-600 cursor-pointer translate-y-4"
+                    />
+                  ) : (
+                    <BsChevronDown
+                      size={20}
+                      className="text-indigo-600 cursor-pointer translate-y-4"
+                    />
+                  )}
+                </motion.div>
+              </div>
+              <AnimatePresence>
+                {fr && (
+                  <motion.div
+                    className="flex flex-col items-end justify-end"
+                    initial={{
+                      x: -60,
+                      height: 0,
+                    }}
+                    transition={{
+                      // type: "spring",
+                      // damping: 7,
+                      ease: "linear",
+                      duration: 0.2,
+                    }}
+                    animate={{
+                      x: 0,
+                      height: "auto",
+                      transition: {
+                        duration: 0.5,
+                        staggerChildren: 0.2, // Add staggerChildren property
+                      },
+                    }}
+                    exit={{
+                      x: -60,
+                      opacity: 0,
+                      height: 0,
+                    }}
+                  >
+                    <SkillBar type={"Selenium"} percentage={90} />
+                    <SkillBar type={"Request"} percentage={70} />
+                   
                   </motion.div>
                 )}
               </AnimatePresence>

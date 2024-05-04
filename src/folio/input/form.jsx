@@ -20,7 +20,14 @@ function Form({darkmode}) {
 
       <section className="flex my-3 flex-col w-full items-center justify-center sm:text-[40px] text-[25px] font-[700] ">
         <h2>Craft Your Dream Project</h2>
-        <h2>with Me </h2>
+        <div className='flex gap-2 items-center justify-center' >
+          <h2>with Me </h2>
+          <img 
+          className='h-[50px] w-[50px] '
+            src="https://cdn3d.iconscout.com/3d/premium/thumb/wave-hand-gesture-4855545-4042375.png?f=webp"
+            alt=""
+          />
+        </div>
       </section>
 
       <section className="w-full flex flex-col gap-8 items-center justify-center">
