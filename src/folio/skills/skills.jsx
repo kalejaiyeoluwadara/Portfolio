@@ -4,6 +4,7 @@ import { BsChevronUp, BsChevronDown } from "react-icons/bs";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { CiServer } from "react-icons/ci";
 import { motion, AnimatePresence } from "framer-motion";
+import { LiaPython } from "react-icons/lia";
 import Control from "../control";
 
 // Skills component
@@ -49,6 +50,9 @@ const Section = ({ name, yearsOfExperience }) => {
       )}
       {name === "Backend developer" && (
         <CiServer size={35} className="text-indigo-600" />
+      )}
+      {name === "Web Scrapping" && (
+        <LiaPython size={35} className="text-indigo-600" />
       )}
 
       <div className="flex flex-col">
