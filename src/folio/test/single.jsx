@@ -20,7 +20,7 @@ function Single({darkmode}) {
             ease: "easeIn",
           },
         }}
-        className="flex gap-2 gls flex-col  h-[350px] justify-between px-6 py-6 rounded-xl w-[450px] "
+        className="flex gap-2 gls flex-col w-[300px] h-[300px]  sm:h-[350px] justify-between px-6 py-6 rounded-xl sm:w-[450px] "
       >
         {/* innercard */}
         <div className="flex gap-4 justify-between  h-[auto]  py-4 rounded-md w-[90%] ">
