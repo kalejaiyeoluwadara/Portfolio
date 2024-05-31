@@ -32,7 +32,6 @@ const SkillBar = ({ type, percentage }) => {
   );
 };
 
-
 // Categories component
 const Section = ({ name, yearsOfExperience }) => {
   return (
@@ -65,9 +64,6 @@ const Section = ({ name, yearsOfExperience }) => {
     </motion.div>
   );
 };
-
-
-
 
 // Main Component
 function Skill() {
@@ -132,13 +128,14 @@ function Skill() {
                       height: 0,
                     }}
                   >
-                    <SkillBar type={"HTML"} percentage={90} />
-                    <SkillBar type={"CSS"} percentage={70} />
+                    <SkillBar type={"React Native"} percentage={50} />
+                    <SkillBar type={"Next Js"} percentage={70} />
+                    <SkillBar type={"React"} percentage={70} />
                     <SkillBar type={"Tailwind"} percentage={75} />
                     <SkillBar type={"Javascript"} percentage={80} />
-                    <SkillBar type={"TypeScript"} percentage={60} />
-                    <SkillBar type={"React"} percentage={70} />
-                    <SkillBar type={"Next Js"} percentage={60} />
+                    <SkillBar type={"TypeScript"} percentage={30} />
+                    <SkillBar type={"HTML"} percentage={90} />
+                    <SkillBar type={"CSS"} percentage={70} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -262,7 +259,9 @@ function Skill() {
                   >
                     <SkillBar type={"Node"} percentage={60} />
                     <SkillBar type={"Express"} percentage={40} />
+                    <SkillBar type={"Mongo db"} percentage={30} />
                     <SkillBar type={"Firebase"} percentage={70} />
+                    <SkillBar type={"Appwrite"} percentage={50} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -325,7 +324,6 @@ function Skill() {
                   >
                     <SkillBar type={"Selenium"} percentage={90} />
                     <SkillBar type={"Request"} percentage={70} />
-                   
                   </motion.div>
                 )}
               </AnimatePresence>
