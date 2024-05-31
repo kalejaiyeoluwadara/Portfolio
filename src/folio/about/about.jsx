@@ -57,20 +57,19 @@ function About({ darkmode }) {
                 <p className="opacity-80 font-[500]">companies worked</p>
               </div>
             </motion.div>
-            <motion.button
+            <motion.a
               whileTap={{
-                scale: 0.7,
+                scale: 0.9,
               }}
               whileHover={{
-                scale: 1.06,
+                scale: 1.03,
               }}
-              onClick={() => {
-                alert("Downloading...");
-              }}
+              target="_blank"
+              href="https://docs.google.com/document/d/1Eq6vPZnrJ7e2fJNjnZHt4BaxDTXlGqJd/edit?rtpof=true"
               className="bg-blue-600 w-[180px] flex justify-center gap-4 text-white rounded-md py-4 px-2"
             >
               Dowload CV <FiDownload size={20} />
-            </motion.button>
+            </motion.a>
           </div>
         </div>
         <Control />

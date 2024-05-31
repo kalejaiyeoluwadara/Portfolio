@@ -68,6 +68,7 @@ const Section = ({ name, yearsOfExperience }) => {
 // Main Component
 function Skill() {
   const [fr, setFr] = useState(false);
+  const [ws, setWs] = useState(false);
   const [ds, setDs] = useState(false);
   const [br, setBr] = useState(false);
   return (
@@ -278,10 +279,10 @@ function Skill() {
                     scale: 0.95,
                   }}
                   onClick={() => {
-                    setFr(!fr);
+                    setWs(!ws);
                   }}
                 >
-                  {fr ? (
+                  {ws ? (
                     <BsChevronUp
                       size={20}
                       className="text-indigo-600 cursor-pointer translate-y-4"
@@ -295,7 +296,7 @@ function Skill() {
                 </motion.div>
               </div>
               <AnimatePresence>
-                {fr && (
+                {ws && (
                   <motion.div
                     className="flex flex-col items-end justify-end"
                     initial={{

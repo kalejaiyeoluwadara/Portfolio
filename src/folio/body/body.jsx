@@ -59,11 +59,28 @@ function Body({ darkmode, setDarkMode }) {
             {/*section*/}
             <div className="mb-2">
               <h1
-                className={`font-bold text-gray-800 sm:text-[50px] sm:text text-[33px]  ${
+                className={`font-bold  text-gray-800 sm:text-[50px] sm:text text-[33px]  ${
                   darkmode && " text-white"
                 } `}
               >
-                Hi, I'am Dara
+                {"Hi, I'am Dara".split("").map((d, id) => {
+                  return (
+                    <motion.span
+                      // className="flex flex-row flex-1 "
+                      initial={{
+                        opacity: 0,
+                        y: -60,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{ delay: id * 0.2, duration: 1 }}
+                    >
+                      {d}
+                    </motion.span>
+                  );
+                })}
               </h1>
               <h3
                 className={`font-medium sm:text-[22px] text-[22px]  text-black opacity-[0.8]  ${
