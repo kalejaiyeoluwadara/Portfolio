@@ -1,32 +1,32 @@
-import React from 'react'
+import React from "react";
 import list from "./list";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 import {
   BsChevronLeft,
   BsChevronRight,
   BsArrowRightShort,
   BsArrowLeftShort,
 } from "react-icons/bs";
-function Controls({setState,state}) {
-    const checkState = (state) => {
-      if (state >= list.length) {
-        return 0;
-      } else if (state < 0) {
-        return list.length - 1;
-      } else {
-        return state;
-      }
-    };
+function Controls({ setState, state }) {
+  const checkState = (state) => {
+    if (state >= list.length) {
+      return 0;
+    } else if (state < 0) {
+      return list.length - 1;
+    } else {
+      return state;
+    }
+  };
 
-    const Next = () => {
-      setState((prevState) => checkState(prevState + 1));
-    };
+  const Next = () => {
+    setState((prevState) => checkState(prevState + 1));
+  };
 
-    const Prev = () => {
-      setState((prevState) => checkState(prevState - 1));
-    };
+  const Prev = () => {
+    setState((prevState) => checkState(prevState - 1));
+  };
   return (
-    <div className="w-[400px] sm:mt-0 mt-4 sm:w-[100%] px-12 flex sm:pl-0 pl-[12px] absolute top-[440px] sm:top-[300px] justify-between items-center">
+    <div className="w-[400px] sm:mt-0 mt-4 sm:w-screen px-6 sm:px-12 sm:-translate-x-[115px] flex sm:pl-0 pl-[12px] absolute top-[440px] sm:top-[300px] justify-between items-center">
       <motion.div
         whileTap={{
           scale: 0.4,
@@ -59,4 +59,4 @@ function Controls({setState,state}) {
   );
 }
 
-export default Controls
+export default Controls;

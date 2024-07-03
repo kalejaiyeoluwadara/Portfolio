@@ -1,5 +1,17 @@
 const list = [
   {
+    name: "MyHomeEtal Admin Webapp",
+    info: "An Admin dashboard webapp for MyHomeEtal Ecommerce Website. Made use of Nextjs and Tailwind Css and followed SSR also implemented catching and server side actions, challenged with tracking data from the backend, creating new employees, managing users, tracking orders, adding products.",
+    img: "/homeetal.png",
+    link: "https://nexgen-academy-nu.vercel.app/",
+  },
+  {
+    name: "NexGen Academy Official Website",
+    info: "A gig worked on for NexGen Academy, an Academy Committed to Nurturing the Next Generation of Tech Trailblazers",
+    img: "/nexgen.png",
+    link: "https://nexgen-academy-nu.vercel.app/",
+  },
+  {
     name: "BODZ Official Website",
     info: "A gig worked on for BODZ Empowerment and Support Center Charity, fully responsive and functional website.",
     img: "/bodz.png",
@@ -18,18 +30,19 @@ const list = [
     link: "https://connect-ed-omega.vercel.app/",
   },
   {
+    name: "(Beta Talk) A Real-time chat app",
+    info: "A fun real time anonymous chat app with great user experience and ui components also featuring animated interactions.",
+    img: "/chat.jpg",
+    link: "https://firebase-nine-flame.vercel.app/",
+  },
+  {
     //Book Mark Page
     name: "BookMark Landing Page",
     info: "This is a solution to the Bookmark landing page challenge on Frontend Mentor.",
     img: "/bm.jpg",
     link: "https://book-mark-seven.vercel.app",
   },
-  {
-    name: "(Beta Talk) A Real-time chat app",
-    info: "A fun real time anonymous chat app with great user experience and ui components also featuring animated interactions.",
-    img: "/chat.jpg",
-    link: "https://firebase-nine-flame.vercel.app/",
-  },
+
   {
     //todo NatureFoods
     name: "Nature Foods",
@@ -58,36 +71,36 @@ const list = [
     img: "/todo.jpg",
     link: "https://card-dusky-eight.vercel.app/",
   },
-  {
-    name: "Whatsapp Clone",
-    info: "Whatsapp Clone adaptable to mobile devices with, ui components and animated interactions.",
-    img: "/whats.jpg",
-    link: "https://whatsapp-clone-qnqgrx1hz-kalejaiyeoluwadara.vercel.app/",
-  },
-  {
-    name: "CountryMania",
-    info: "Webapp adaptable to all devices with ui components and animated interactions.",
-    img: "/cont.jpg",
-    link: "https://country-app2.vercel.app/",
-  },
-  {
-    name: "Fylo Dark theme Page",
-    info: "Fylo Landing Page adaptable to all devices with ui components and animated interactions",
-    img: "/fylo.jpg",
-    link: "https://kalejaiyeoluwadara.github.io/Fylo-dark-theme/fyloDarkThemePage/main.html",
-  },
-  {
-    name: "Shoe Ecommerce Page",
-    info: "Ecommerce mobile web app adaptable to mobile devices with, ui components and animated interactions.",
-    img: "/sh.jpg",
-    link: "https://sneakerstore-ten.vercel.app/",
-  },
+  // {
+  //   name: "Whatsapp Clone",
+  //   info: "Whatsapp Clone adaptable to mobile devices with, ui components and animated interactions.",
+  //   img: "/whats.jpg",
+  //   link: "https://whatsapp-clone-qnqgrx1hz-kalejaiyeoluwadara.vercel.app/",
+  // },
+  // {
+  //   name: "CountryMania",
+  //   info: "Webapp adaptable to all devices with ui components and animated interactions.",
+  //   img: "/cont.jpg",
+  //   link: "https://country-app2.vercel.app/",
+  // },
+  // {
+  //   name: "Fylo Dark theme Page",
+  //   info: "Fylo Landing Page adaptable to all devices with ui components and animated interactions",
+  //   img: "/fylo.jpg",
+  //   link: "https://kalejaiyeoluwadara.github.io/Fylo-dark-theme/fyloDarkThemePage/main.html",
+  // },
+  // {
+  //   name: "Shoe Ecommerce Page",
+  //   info: "Ecommerce mobile web app adaptable to mobile devices with, ui components and animated interactions.",
+  //   img: "/sh.jpg",
+  //   link: "https://sneakerstore-ten.vercel.app/",
+  // },
 
-  {
-    name: "Rock, paper, sciss...",
-    info: "Web game adaptable to all devices with, ui components and animated interactions.",
-    img: "/rock.jpg",
-    link: "https://rock-papergame.vercel.app/",
-  },
+  // {
+  //   name: "Rock, paper, sciss...",
+  //   info: "Web game adaptable to all devices with, ui components and animated interactions.",
+  //   img: "/rock.jpg",
+  //   link: "https://rock-papergame.vercel.app/",
+  // },
 ];
 export default list;
