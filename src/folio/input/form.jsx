@@ -1,66 +1,66 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { IoArrowUp, IoCheckmarkDone } from "react-icons/io5";
 import { MdArrowOutward } from "react-icons/md";
 import { motion } from "framer-motion";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../src/config/firebase";
 import { useGlobal } from "../../context";
-import '../../App.css'
+import "../../App.css";
 function Form({ darkmode }) {
   const [error, setError] = useState(null);
   const [modal, setModal] = useState(false);
-  const {msg} = useGlobal()
-  const {setMsg} = useGlobal()
-   const handleSubmit = async () => {
-     // Get form data
-     const name = document.getElementById("name").value;
-     const email = document.getElementById("email").value;
-     const subject = document.getElementById("subject").value;
-     const description = document.getElementById("description").value;
-     const message = document.getElementById("message").value;
+  const { msg } = useGlobal();
+  const { setMsg } = useGlobal();
+  const handleSubmit = async () => {
+    // Get form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const description = document.getElementById("description").value;
+    const message = document.getElementById("message").value;
 
-     // Check if any required field is empty
-     if (!name || !email || !subject || !description || !message) {
-       console.error("Please fill out all required fields.");
-       setMsg("Kindly Input all fields.");
-       setModal(true);
-       return; // Exit the function early if any field is empty
-     }
+    // Check if any required field is empty
+    if (!name || !email || !subject || !description || !message) {
+      console.error("Please fill out all required fields.");
+      setMsg("Kindly Input all fields.");
+      setModal(true);
+      return; // Exit the function early if any field is empty
+    }
 
-     // Construct form data
-     const formData = {
-       name,
-       email,
-       subject,
-       description,
-       message,
-     };
+    // Construct form data
+    const formData = {
+      name,
+      email,
+      subject,
+      description,
+      message,
+    };
 
-     try {
-       // Add data to Firestore
-       await addDoc(collection(db, "messages"), formData);
-       // Handle success
-       console.log("Message sent successfully.");
-       setMsg("Message sent successfully! 👍");
-       setModal(true);
-       // Reset form fields
-       document.getElementById("name").value = "";
-       document.getElementById("email").value = "";
-       document.getElementById("subject").value = "";
-       document.getElementById("description").value = "";
-       document.getElementById("message").value = "";
-       // Hide modal after 5 seconds
-       setTimeout(() => {
-         setModal(false);
-       }, 5000);
-     } catch (error) {
-       setMsg("Error sending message!");
-       setModal(true);
-       console.error("Error adding document: ", error);
-       // Handle error (optional)
-     }
-     console.log(msg)
-   };
+    try {
+      // Add data to Firestore
+      await addDoc(collection(db, "messages"), formData);
+      // Handle success
+      console.log("Message sent successfully.");
+      setMsg("Message sent successfully! 👍");
+      setModal(true);
+      // Reset form fields
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("subject").value = "";
+      document.getElementById("description").value = "";
+      document.getElementById("message").value = "";
+      // Hide modal after 5 seconds
+      setTimeout(() => {
+        setModal(false);
+      }, 5000);
+    } catch (error) {
+      setMsg("Error sending message!");
+      setModal(true);
+      console.error("Error adding document: ", error);
+      // Handle error (optional)
+    }
+    console.log(msg);
+  };
 
   return (
     <main
@@ -113,7 +113,7 @@ function Form({ darkmode }) {
                 className={`py-3 ${
                   darkmode ? "bg-transparent" : "bg-white"
                 } px-2 border-[2px] border-gray-400 rounded-[8px] sm:w-[350px] w-[300px] `}
-                placeholder="My Email Id"
+                placeholder="Your Email Id"
                 type="text"
               />
             </div>
@@ -174,7 +174,7 @@ function Form({ darkmode }) {
           </section>
         </section>
       </main>
-      {msg !== '' && <Modal />}
+      {msg !== "" && <Modal />}
     </main>
   );
 }
@@ -220,6 +220,5 @@ const Modal = () => {
     </motion.div>
   );
 };
-
 
 export default Form;

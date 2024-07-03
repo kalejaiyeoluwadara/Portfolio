@@ -104,7 +104,7 @@ function Skill() {
               <AnimatePresence>
                 {fr && (
                   <motion.div
-                    className="flex flex-col items-end justify-end"
+                    className="flex flex-col sm:pr-0 pr-4 items-end justify-end"
                     initial={{
                       x: -60,
                       height: 0,
@@ -171,7 +171,7 @@ function Skill() {
               <AnimatePresence>
                 {ds && (
                   <motion.div
-                    className="flex flex-col items-end justify-end"
+                    className="flex flex-col sm:pr-0 pr-4 items-end justify-end"
                     initial={{
                       x: -60,
                       height: 0,
@@ -256,7 +256,7 @@ function Skill() {
                       opacity: 0,
                       height: 0,
                     }}
-                    className="flex flex-col justify-start items-start sm:items-end  sm:justify-end"
+                    className="flex flex-col sm:pr-0 pr-4 justify-start items-start sm:items-end  sm:justify-end"
                   >
                     <SkillBar type={"Node"} percentage={60} />
                     <SkillBar type={"Express"} percentage={40} />
@@ -298,7 +298,7 @@ function Skill() {
               <AnimatePresence>
                 {ws && (
                   <motion.div
-                    className="flex flex-col items-end justify-end"
+                    className="flex flex-col sm:pr-0 pr-4 items-end justify-end"
                     initial={{
                       x: -60,
                       height: 0,
