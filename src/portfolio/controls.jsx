@@ -26,7 +26,7 @@ function Controls({ setState, state }) {
     setState((prevState) => checkState(prevState - 1));
   };
   return (
-    <div className="w-[400px] sm:mt-0 mt-4 sm:w-screen px-6 sm:px-12 sm:-translate-x-[115px] flex sm:pl-0 pl-[12px] absolute top-[440px] sm:top-[300px] justify-between items-center">
+    <div className="w-[400px] sm:mt-0 mt-4 sm:w-screen px-12 sm:px-12 sm:-translate-x-[115px] flex sm:pl-0 pl-[12px] absolute top-[440px] sm:top-[300px] justify-between items-center">
       <motion.div
         whileTap={{
           scale: 0.4,

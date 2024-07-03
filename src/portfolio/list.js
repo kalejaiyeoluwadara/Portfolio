@@ -1,16 +1,17 @@
 const list = [
   {
-    name: "MyHomeEtal Admin Webapp",
-    info: "An Admin dashboard webapp for MyHomeEtal Ecommerce Website. Made use of Nextjs and Tailwind Css and followed SSR also implemented catching and server side actions, challenged with tracking data from the backend, creating new employees, managing users, tracking orders, adding products.",
-    img: "/homeetal.png",
-    link: "https://nexgen-academy-nu.vercel.app/",
-  },
-  {
     name: "NexGen Academy Official Website",
     info: "A gig worked on for NexGen Academy, an Academy Committed to Nurturing the Next Generation of Tech Trailblazers",
     img: "/nexgen.png",
     link: "https://nexgen-academy-nu.vercel.app/",
   },
+  {
+    name: "MyHomeEtal Admin Webapp",
+    info: "An Admin dashboard webapp for MyHomeEtal Ecommerce Website. Made use of Nextjs and Tailwind Css and followed SSR also implemented catching and server side actions, challenged with tracking data from the backend, creating new employees, managing users, tracking orders, adding products.",
+    img: "/homeetal.png",
+    link: "https://myhomeetal-admin-brown.vercel.app/",
+  },
+
   {
     name: "BODZ Official Website",
     info: "A gig worked on for BODZ Empowerment and Support Center Charity, fully responsive and functional website.",

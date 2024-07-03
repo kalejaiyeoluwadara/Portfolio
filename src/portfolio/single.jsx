@@ -42,10 +42,10 @@ function Single({ state, setState }) {
         {/* mob */}
         <div className="flex sm:flex-row sm:gap-[50px] flex-col-reverse items-center justify-center">
           <div className=" flex flex-col  sm:gap-5 mt-12 items-start">
-            <h1 className="font-[600] w-[100%] opacity-[0.9] text-[28px] ">
+            <h1 className="font-[600] sm:px-0 px-4 w-[100%] opacity-[0.9] text-[23px] sm:text-[28px] ">
               {list[state].name}
             </h1>
-            <p className="w-full sm:mb-0 mb-6 opacity-[0.8] font-[500] ">
+            <p className="w-full sm:mb-0 sm:px-0 px-4 mb-6 opacity-[0.8] font-[500] ">
               {list[state].info}
             </p>
             <motion.a target="_blank" href={list[state].link}>
@@ -56,7 +56,7 @@ function Single({ state, setState }) {
                 whileHover={{
                   scale: 1.05,
                 }}
-                className="px-5 py-3  sm:mt-3 flex gap-2 items-center rounded-md bg-blue-700 text-white font-[500] "
+                className="px-5 py-3 sm:ml-0 ml-4 sm:mt-3 flex gap-2 items-center rounded-md bg-blue-700 text-white font-[500] "
               >
                 Demo <BsArrowRightShort size={30} />
               </motion.button>
