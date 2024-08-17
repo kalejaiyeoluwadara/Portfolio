@@ -131,6 +131,7 @@ function Skill() {
                   >
                     <SkillBar type={"React Native"} percentage={70} />
                     <SkillBar type={"Next Js"} percentage={80} />
+                    <SkillBar type={"Shadcn"} percentage={60} />
                     <SkillBar type={"React"} percentage={80} />
                     <SkillBar type={"Tailwind"} percentage={95} />
                     <SkillBar type={"Javascript"} percentage={80} />
