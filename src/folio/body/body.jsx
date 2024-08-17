@@ -63,7 +63,7 @@ function Body({ darkmode, setDarkMode }) {
                   darkmode && " text-white"
                 } `}
               >
-                {"Hi, I'am Dara".split("").map((d, id) => {
+                {"Hi, I'm Dara".split("").map((d, id) => {
                   return (
                     <motion.span
                       // className="flex flex-row flex-1 "
