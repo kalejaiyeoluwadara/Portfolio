@@ -75,7 +75,7 @@ function Skill() {
     <div id="sk" className="flex items-center mt-10  justify-center">
       <div className="h-[auto] sm:w-[80%] w-[100%] sm:px-0 px-4 relative justify-start items-center flex flex-col gap-10">
         <Head h1={"Skills"} p={"My technical skills"} />
-        <div className="flex flex-wrap   gap-12">
+        <div className="grid sm:grid-cols-2 grid-cols-1   gap-12">
           <div className="flex flex-col w-[350px]">
             <div className="flex flex-col w-full gap-2 items-end">
               <div className="flex justify-between w-full">
@@ -129,14 +129,14 @@ function Skill() {
                       height: 0,
                     }}
                   >
-                    <SkillBar type={"React Native"} percentage={50} />
-                    <SkillBar type={"Next Js"} percentage={70} />
-                    <SkillBar type={"React"} percentage={70} />
-                    <SkillBar type={"Tailwind"} percentage={75} />
+                    <SkillBar type={"React Native"} percentage={70} />
+                    <SkillBar type={"Next Js"} percentage={80} />
+                    <SkillBar type={"React"} percentage={80} />
+                    <SkillBar type={"Tailwind"} percentage={95} />
                     <SkillBar type={"Javascript"} percentage={80} />
-                    <SkillBar type={"TypeScript"} percentage={30} />
+                    <SkillBar type={"TypeScript"} percentage={80} />
                     <SkillBar type={"HTML"} percentage={90} />
-                    <SkillBar type={"CSS"} percentage={70} />
+                    <SkillBar type={"CSS"} percentage={80} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -258,11 +258,11 @@ function Skill() {
                     }}
                     className="flex flex-col sm:pr-0 pr-4 justify-start items-start sm:items-end  sm:justify-end"
                   >
-                    <SkillBar type={"Node"} percentage={60} />
-                    <SkillBar type={"Express"} percentage={40} />
-                    <SkillBar type={"Mongo db"} percentage={30} />
+                    <SkillBar type={"Node"} percentage={70} />
+                    <SkillBar type={"Express"} percentage={80} />
+                    <SkillBar type={"Mongo db"} percentage={80} />
                     <SkillBar type={"Firebase"} percentage={70} />
-                    <SkillBar type={"Appwrite"} percentage={50} />
+                    <SkillBar type={"Appwrite"} percentage={40} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -270,66 +270,6 @@ function Skill() {
           </div>
 
           {/* New section */}
-          <div className="flex flex-col w-[350px]">
-            <div className="flex flex-col w-full gap-2 items-end">
-              <div className="flex justify-between w-full">
-                <Section name={"Web Scrapping"} yearsOfExperience={1} />
-                <motion.div
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  onClick={() => {
-                    setWs(!ws);
-                  }}
-                >
-                  {ws ? (
-                    <BsChevronUp
-                      size={20}
-                      className="text-indigo-600 cursor-pointer translate-y-4"
-                    />
-                  ) : (
-                    <BsChevronDown
-                      size={20}
-                      className="text-indigo-600 cursor-pointer translate-y-4"
-                    />
-                  )}
-                </motion.div>
-              </div>
-              <AnimatePresence>
-                {ws && (
-                  <motion.div
-                    className="flex flex-col sm:pr-0 pr-4 items-end justify-end"
-                    initial={{
-                      x: -60,
-                      height: 0,
-                    }}
-                    transition={{
-                      // type: "spring",
-                      // damping: 7,
-                      ease: "linear",
-                      duration: 0.2,
-                    }}
-                    animate={{
-                      x: 0,
-                      height: "auto",
-                      transition: {
-                        duration: 0.5,
-                        staggerChildren: 0.2, // Add staggerChildren property
-                      },
-                    }}
-                    exit={{
-                      x: -60,
-                      opacity: 0,
-                      height: 0,
-                    }}
-                  >
-                    <SkillBar type={"Selenium"} percentage={90} />
-                    <SkillBar type={"Request"} percentage={70} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
         </div>
       </div>
     </div>
