@@ -11,6 +11,12 @@ const list = [
     img: "/homeetal.png",
     link: "https://myhomeetal-admin-brown.vercel.app/",
   },
+  // {
+  //   name: "MyHomeEtal Admin Webapp",
+  //   info: "An Admin dashboard webapp for MyHomeEtal Ecommerce Website. Made use of Nextjs and Tailwind Css and followed SSR also implemented catching and server side actions, challenged with tracking data from the backend, creating new employees, managing users, tracking orders, adding products.",
+  //   img: "/homeetal.png",
+  //   link: "https://myhomeetal-admin-brown.vercel.app/",
+  // },
 
   {
     name: "BODZ Official Website",
