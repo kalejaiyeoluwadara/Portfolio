@@ -1,9 +1,9 @@
 const list = [
   {
     name: "Yoruba GPT",
-    info: "YGPT an AI that vibes in Yoruba! Instant, real talk, and cool responses straight from your local language—fluent in Yoruba and always on point",
+    info: "YGPT an AI that vibes in Yoruba! Instant, real talk, and cool responses straight from your local language—fluent in Yoruba and always on point, includes a an AI powered studypal that helps student summarise, create short notes, quiz and tips from pdf, text and word files",
     img: "/ygpt.png",
-    link: "https://yoruba-gpt.vercel.app/",
+    link: "https://ygpt-five.vercel.app/",
   },
   {
     name: "NexGen Academy Official Website",
