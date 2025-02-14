@@ -129,15 +129,11 @@ function Skill() {
                       height: 0,
                     }}
                   >
-                    <SkillBar type={"React Native"} percentage={70} />
                     <SkillBar type={"Next Js"} percentage={80} />
-                    <SkillBar type={"Shadcn"} percentage={60} />
-                    <SkillBar type={"React"} percentage={80} />
+                    <SkillBar type={"React Native"} percentage={70} />
+                    <SkillBar type={"Flutter"} percentage={60} />
                     <SkillBar type={"Tailwind"} percentage={95} />
-                    <SkillBar type={"Javascript"} percentage={80} />
                     <SkillBar type={"TypeScript"} percentage={80} />
-                    <SkillBar type={"HTML"} percentage={90} />
-                    <SkillBar type={"CSS"} percentage={80} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -263,7 +259,6 @@ function Skill() {
                     <SkillBar type={"Express"} percentage={80} />
                     <SkillBar type={"Mongo db"} percentage={80} />
                     <SkillBar type={"Firebase"} percentage={70} />
-                    <SkillBar type={"Appwrite"} percentage={40} />
                   </motion.div>
                 )}
               </AnimatePresence>
