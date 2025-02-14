@@ -1,5 +1,17 @@
 const list = [
   {
+    name: "Tetra",
+    info: "Making Contactless Payments Effortless for Africans.",
+    img: "/tetra.png",
+    link: "https://www.paywithtetra.com/",
+  },
+  {
+    name: "Belongeen",
+    info: "Worked on the backend and admin page for Belongeen an E-commerce web application where Babcock University students can order foods and items from stores and student vendors and get deliveries right at their door steps.",
+    img: "/belongeen.png",
+    link: "https://www.belongeen.com/",
+  },
+  {
     name: "YGPT",
     info: "YGPT an AI that vibes in Yoruba! Instant, real talk, and cool responses straight from your local language—fluent in Yoruba and always on point, includes a an AI powered studypal that helps student summarise, create short notes, quiz and tips from pdf, text and word files",
     img: "/ygpt.png",

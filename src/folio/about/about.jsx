@@ -49,11 +49,11 @@ function About({ darkmode }) {
                 <p className="opacity-80 font-[500]">Years experience</p>
               </div>
               <div className="flex flex-col w-[100px] text-center capitalize ">
-                <h3 className="font-[600] opacity-[0.9] text-[25px] ">20+</h3>
+                <h3 className="font-[600] opacity-[0.9] text-[25px] ">30+</h3>
                 <p className="opacity-80 font-[500]">complete projects</p>
               </div>
               <div className="flex flex-col w-[100px] text-center capitalize ">
-                <h3 className="font-[600] opacity-[0.9] text-[25px] ">01+</h3>
+                <h3 className="font-[600] opacity-[0.9] text-[25px] ">04+</h3>
                 <p className="opacity-80 font-[500]">companies worked</p>
               </div>
             </motion.div>
