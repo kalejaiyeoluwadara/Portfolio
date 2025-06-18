@@ -255,10 +255,9 @@ function Skill() {
                     }}
                     className="flex flex-col sm:pr-0 pr-4 justify-start items-start sm:items-end  sm:justify-end"
                   >
-                    <SkillBar type={"Node"} percentage={70} />
                     <SkillBar type={"Express"} percentage={80} />
-                    <SkillBar type={"Mongo db"} percentage={80} />
-                    <SkillBar type={"Firebase"} percentage={70} />
+                    <SkillBar type={"Golang"} percentage={50} />
+                    <SkillBar type={"Asp.net"} percentage={70} />
                   </motion.div>
                 )}
               </AnimatePresence>
