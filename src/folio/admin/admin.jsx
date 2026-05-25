@@ -14,6 +14,8 @@ import Services from '../services/services';
 import Testimonials from '../test/test';
 import Mobile from '../nav/mobile';
 import Form from '../input/form';
+import InteractiveBackground from '../background/InteractiveBackground';
+
 function Admin() {
    const [modal, setModal] = useState(false);
    const [data, setData] = useState(0);
@@ -31,6 +33,7 @@ function Admin() {
      }, []);
   return (
     <div className={`relative ${darkmode && "bg-gray-900 text-white"}`}>
+      <InteractiveBackground darkmode={darkmode} />
       <div>
         {width > 600 && <Nav darkmode={darkmode} setDarkMode={setDarkMode} />}
         <Body darkmode={darkmode} />
