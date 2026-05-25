@@ -1,11 +1,8 @@
-.tests::-webkit-scrollbar{
-    background-color: rgba(128, 128, 128, 0.13);
-    visibility: hidden;
+.tests::-webkit-scrollbar {
+    display: none;
 }
-.tests::-webkit-scrollbar-thumb {
-    background-color: rgba(128, 128, 128, 0.323);
-    visibility: hidden;
-}
-.test::-webkit-scrollbar-track{
-    height: 10vh;
+
+.tests {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

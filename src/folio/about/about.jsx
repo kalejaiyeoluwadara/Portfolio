@@ -1,74 +1,127 @@
 import React from "react";
 import img from "/pi.jpg";
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiAward, FiBriefcase, FiUsers } from "react-icons/fi";
 import Control from "../control";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 function About({ darkmode }) {
   return (
-    <div id="about" className="flex items-center justify-center">
-      <div className="sm:h-[screen] sm:-translate-y-[100px] h-[90vh]  relative justify-center items-center flex flex-col sm:gap-[100px] gap-[30px] ">
+    <div id="about" className="w-full flex items-center justify-center py-16 sm:py-24">
+      <div className="relative justify-center items-center flex flex-col gap-10 w-[90%] sm:w-[80%]">
+        
+        {/* Section Header */}
         <div className="flex flex-col items-center justify-center">
-          <h1 className="font-bold sm:text-[50px] text-[30px] opacity-[0.9] ">
+          <h1 className={`font-bold sm:text-[50px] text-[30px] leading-tight ${
+            darkmode ? "text-white" : "text-gray-900"
+          }`}>
             About Me
           </h1>
-          <p className="font-[500] sm:text-[20px] text-[15px] opacity-80 ">
+          <p className={`font-semibold sm:text-[18px] text-[14px] mt-1 tracking-wider uppercase opacity-70 ${
+            darkmode ? "text-indigo-400" : "text-blue-600"
+          }`}>
             My introduction
           </p>
         </div>
 
-        <div className="flex justify-between sm:flex-row flex-col gap-[40px] sm:gap-[120px] items-center">
-          <div>
-            <motion.img
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              src={img}
-              className="sm:h-[250px] h-[160px] w-[100%] sm:w-[400px] rounded-xl "
-              alt=""
-            />
+        {/* Main Content Layout */}
+        <div className="flex justify-between sm:flex-row flex-col gap-[50px] sm:gap-[80px] lg:gap-[120px] items-center w-full mt-4">
+          
+          {/* Creative Profile Picture Frame */}
+          <div className="relative group flex-shrink-0">
+            {/* Background offset card */}
+            <div className={`absolute inset-0 rounded-2xl rotate-6 scale-95 opacity-80 blur-[1px] transition-all duration-300 group-hover:rotate-3 group-hover:scale-100 ${
+              darkmode ? "bg-indigo-600/50" : "bg-blue-500/40"
+            }`} />
+            
+            {/* Foreground card */}
+            <motion.div
+              whileHover={{ y: -6, rotate: -2 }}
+              transition={{ duration: 0.3 }}
+              className={`relative rounded-2xl overflow-hidden border shadow-xl bg-slate-955/10 cursor-pointer w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] ${
+                darkmode ? "border-slate-800" : "border-slate-200"
+              }`}
+            >
+              <img
+                src={img}
+                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                alt="About Me Portrait"
+                loading="lazy"
+              />
+            </motion.div>
           </div>
 
-          <div className="flex flex-col  gap-12 px-4 sm:px-0 sm:items-start items-center">
-            <p
-              className={`sm:w-[420px] px-2 font-[500] text-[18px] text-gray-700  sm:text-start text-center w-[100%]  ${
-                darkmode && " text-white"
-              } `}
-            >
-              Web developer with extensive knowledge and years of experience,
-              working in web technologies and UI / UX, delivering quality work.
-            </p>
+          {/* Details & Biography */}
+          <div className="flex flex-col gap-8 px-4 sm:px-0 sm:items-start items-center flex-grow max-w-[500px]">
+            <div className="flex flex-col gap-3">
+              <h3 className={`text-lg sm:text-xl font-bold tracking-tight text-center sm:text-start leading-tight ${
+                darkmode ? "text-indigo-300" : "text-blue-600"
+              }`}>
+                Bridging aesthetics and modern software architecture.
+              </h3>
+              <p
+                className={`text-sm sm:text-[15px] leading-relaxed text-center sm:text-start font-medium ${
+                  darkmode ? "text-slate-300" : "text-slate-600"
+                }`}
+              >
+                Hello! I'm Oluwadara, a full-stack engineer and designer who loves building systems that run efficiently and look stunning. My journey is driven by curiosity and a commitment to quality, turning complex requirements into simple, beautiful digital products.
+              </p>
+            </div>
+
+            {/* Glassmorphic Metrics Card Grid */}
             <motion.div
-              initial={{ opacity: 0, x: 200 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              className="flex gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-3 gap-3 sm:gap-4 w-full"
             >
-              <div className="flex flex-col w-[100px] text-center capitalize ">
-                <h3 className="font-[600] opacity-[0.9] text-[25px] ">04+</h3>
-                <p className="opacity-80 font-[500]">Years experience</p>
+              {/* Experience Card */}
+              <div className={`gls rounded-xl p-3 flex flex-col items-center justify-center text-center border shadow-sm transition-shadow hover:shadow-md ${
+                darkmode ? "bg-slate-900/50 border-slate-800/80" : "bg-white/50 border-slate-200"
+              }`}>
+                <FiAward size={20} className="text-indigo-500 dark:text-indigo-400 mb-1.5" />
+                <h4 className={`font-bold text-base sm:text-lg leading-tight ${darkmode ? "text-white" : "text-slate-900"}`}>04+</h4>
+                <p className="text-[10px] sm:text-xs font-semibold opacity-70 mt-0.5 leading-none">Experience</p>
               </div>
-              <div className="flex flex-col w-[100px] text-center capitalize ">
-                <h3 className="font-[600] opacity-[0.9] text-[25px] ">30+</h3>
-                <p className="opacity-80 font-[500]">complete projects</p>
+
+              {/* Projects Card */}
+              <div className={`gls rounded-xl p-3 flex flex-col items-center justify-center text-center border shadow-sm transition-shadow hover:shadow-md ${
+                darkmode ? "bg-slate-900/50 border-slate-800/80" : "bg-white/50 border-slate-200"
+              }`}>
+                <FiBriefcase size={20} className="text-indigo-500 dark:text-indigo-400 mb-1.5" />
+                <h4 className={`font-bold text-base sm:text-lg leading-tight ${darkmode ? "text-white" : "text-slate-900"}`}>30+</h4>
+                <p className="text-[10px] sm:text-xs font-semibold opacity-70 mt-0.5 leading-none">Projects</p>
               </div>
-              <div className="flex flex-col w-[100px] text-center capitalize ">
-                <h3 className="font-[600] opacity-[0.9] text-[25px] ">04+</h3>
-                <p className="opacity-80 font-[500]">companies worked</p>
+
+              {/* Companies Card */}
+              <div className={`gls rounded-xl p-3 flex flex-col items-center justify-center text-center border shadow-sm transition-shadow hover:shadow-md ${
+                darkmode ? "bg-slate-900/50 border-slate-800/80" : "bg-white/50 border-slate-200"
+              }`}>
+                <FiUsers size={20} className="text-indigo-500 dark:text-indigo-400 mb-1.5" />
+                <h4 className={`font-bold text-base sm:text-lg leading-tight ${darkmode ? "text-white" : "text-slate-900"}`}>04+</h4>
+                <p className="text-[10px] sm:text-xs font-semibold opacity-70 mt-0.5 leading-none">Clients</p>
               </div>
             </motion.div>
+
+            {/* CV Download CTA */}
             <motion.a
               whileTap={{
-                scale: 0.9,
+                scale: 0.96,
               }}
               whileHover={{
-                scale: 1.03,
+                scale: 1.02,
               }}
               target="_blank"
               href="https://docs.google.com/document/d/1Eq6vPZnrJ7e2fJNjnZHt4BaxDTXlGqJd/edit?rtpof=true"
-              className="bg-blue-600 w-[180px] flex justify-center gap-4 text-white rounded-md py-4 px-2"
+              rel="noopener noreferrer"
+              className={`w-[180px] h-[52px] flex items-center justify-center gap-3 text-white rounded-xl font-bold transition-all duration-300 shadow-md ${
+                darkmode 
+                  ? "bg-indigo-600 hover:bg-indigo-500 shadow-indigo-500/20" 
+                  : "bg-blue-600 hover:bg-blue-700 shadow-blue-500/20"
+              }`}
             >
-              Dowload CV <FiDownload size={20} />
+              Download CV 
+              <FiDownload size={18} className="animate-bounce" style={{ animationDuration: '2s' }} />
             </motion.a>
           </div>
         </div>

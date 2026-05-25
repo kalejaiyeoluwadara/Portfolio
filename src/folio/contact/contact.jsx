@@ -16,9 +16,9 @@ function Contact() {
       ease:'easeIn'
     }}
       id="contact"
-      className="flex items-center  px-2 sm:px-0 sm:h-[50vh] h-[auto] sm:mt-18 mt-20 justify-center"
+      className="w-full flex items-center justify-center py-16 sm:py-24 px-4 sm:px-0"
     >
-      <div className="w-[100%] sm:px-8 sm:w-[50%] sm:h-[40vh] h-[auto] sm:flex-nowrap flex-wrap flex items-center sm:justify-around justify-center bg-indigo-600 py-6 sm:py-0 rounded-xl">
+      <div className="w-full sm:w-[80%] flex items-center justify-around flex-wrap sm:flex-nowrap bg-indigo-600 py-8 sm:py-10 px-6 sm:px-12 rounded-2xl gap-8 shadow-xl">
         <div className="flex flex-col w-[90%] gap-4 items-start">
           <h1 className="text-white text-[25px] font-[600] ">
             You have a new Project

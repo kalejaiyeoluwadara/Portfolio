@@ -72,8 +72,8 @@ function Skill() {
   const [ds, setDs] = useState(false);
   const [br, setBr] = useState(false);
   return (
-    <div id="sk" className="flex items-center mt-10  justify-center">
-      <div className="h-[auto] sm:w-[80%] w-[100%] sm:px-0 px-4 relative justify-start items-center flex flex-col gap-10">
+    <div id="sk" className="w-full flex items-center justify-center py-16 sm:py-24">
+      <div className="h-auto w-[90%] sm:w-[80%] relative justify-start items-center flex flex-col gap-10">
         <Head h1={"Skills"} p={"My technical skills"} />
         <div className="grid sm:grid-cols-2 grid-cols-1   gap-12">
           <div className="flex flex-col w-[350px]">

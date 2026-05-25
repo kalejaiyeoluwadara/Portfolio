@@ -65,13 +65,8 @@ function Form({ darkmode }) {
   return (
     <main
       id="cont"
-      className="w-screen sm:px-8 mt-10 sm:mt-20 min-h-[100vh] flex flex-col items-center justify-center gap-8 "
+      className="w-full flex flex-col items-center justify-center py-16 sm:py-24 gap-8"
     >
-      {/* Form content */}
-      <main
-        id="cont"
-        className="w-screen sm:px-8 mt-10 sm:mt-20 min-h-[100vh] flex flex-col items-center justify-center gap-8 "
-      >
         <section className="sm:w-[80%] w-[90%] flex flex-col items-center justify-center sm:py-0 h-[120px] sm:h-[150px] border-[2px] rounded-[8px] sm:rounded-[20px] border-gray-200 ">
           <a href="#home">
             <p className="text-[15px] flex gap-1 ">
@@ -173,7 +168,6 @@ function Form({ darkmode }) {
             </motion.button>
           </section>
         </section>
-      </main>
       {msg !== "" && <Modal />}
     </main>
   );

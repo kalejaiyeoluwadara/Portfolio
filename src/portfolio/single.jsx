@@ -1,89 +1,104 @@
 import React from "react";
-import img from "/pi.jpg";
-import list from "./list";
-import Controls from "./controls";
-import {
-  BsChevronLeft,
-  BsChevronRight,
-  BsArrowRightShort,
-  BsArrowLeftShort,
-} from "react-icons/bs";
-import { motion, AnimatePresence } from "framer-motion";
-function Single({ state, setState }) {
-  const checkState = (state) => {
-    if (state >= list.length) {
-      return 0;
-    } else if (state < 0) {
-      return list.length - 1;
-    } else {
-      return state;
-    }
-  };
+import { BsArrowUpRight } from "react-icons/bs";
+import { motion } from "framer-motion";
 
-  const Next = () => {
-    setState((prevState) => checkState(prevState + 1));
-  };
-
-  const Prev = () => {
-    setState((prevState) => checkState(prevState - 1));
-  };
+function Single({ project, darkmode }) {
+  if (!project) return null;
 
   return (
-    <AnimatePresence>
-      <motion.div
-        key={state}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        exit={{ opacity: 0, x: "100%" }}
-        layout="true"
-        className="flex mt-12  gap-8 items-center relative  sm:w-full sm:justify-around justify-center"
-      >
-        {/* mob */}
-        <div className="flex sm:flex-row sm:gap-[50px] flex-col-reverse items-center justify-center">
-          <div className=" flex flex-col  sm:gap-5 mt-12 items-start">
-            <h1 className="font-[600] sm:px-0 px-4 w-[100%] opacity-[0.9] text-[23px] sm:text-[28px] ">
-              {list[state].name}
-            </h1>
-            <p className="w-full sm:mb-0 sm:px-0 px-4 mb-6 opacity-[0.8] font-[500] ">
-              {list[state].info}
-            </p>
-            <motion.a target="_blank" href={list[state].link}>
-              <motion.button
-                whileTap={{
-                  scale: 0.95,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                }}
-                className="px-5 py-3 sm:ml-0 ml-4 sm:mt-3 flex gap-2 items-center rounded-md bg-blue-700 text-white font-[500] "
-              >
-                Demo <BsArrowRightShort size={30} />
-              </motion.button>
-            </motion.a>
-          </div>
-          <div className="flex flex-shrink-0 sm:block sm:mb-0 mb-4 items-center relative overflow-hidden justify-center">
-            <img
-              id={state}
-              key={state}
-              transition={{
-                duration: 1,
-              }}
-              exit={
-                {
-                  // opacity: 0,
-                  // y:300
-                }
-              }
-              src={list[state].img}
-              className="h-[250px] top-0 object-cover left-0 w-[90%] sm:w-[400px] rounded-xl "
-              alt=""
-            />
-          </div>
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+      className={`flex flex-col rounded-2xl overflow-hidden h-[440px] border transition-all duration-300 gls ${
+        darkmode 
+          ? "bg-slate-900/60 border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.3)] hover:shadow-indigo-500/10" 
+          : "bg-white/40 border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-indigo-500/5"
+      }`}
+    >
+      {/* Cover Image Container */}
+      <div className="relative h-[180px] w-full overflow-hidden flex-shrink-0 bg-slate-950/10 dark:bg-white/5 border-b border-white/10 dark:border-slate-800/50">
+        <motion.img
+          whileHover={{ scale: 1.06 }}
+          transition={{ duration: 0.3 }}
+          src={project.img}
+          className="w-full h-full object-cover"
+          alt={project.name}
+          loading="lazy"
+        />
+        {/* Category Badge overlay */}
+        <span className={`absolute top-3 left-3 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${
+          darkmode 
+            ? "bg-indigo-900/80 text-indigo-200 border border-indigo-700/50" 
+            : "bg-indigo-100/90 text-indigo-700 border border-indigo-200/60"
+        }`}>
+          {project.category}
+        </span>
+      </div>
+
+      {/* Card Body */}
+      <div className="p-5 flex flex-col justify-between flex-grow">
+        <div className="flex flex-col gap-2">
+          {/* Title */}
+          <h3 className={`font-bold text-lg sm:text-xl capitalize leading-tight ${
+            darkmode ? "text-white" : "text-slate-900"
+          }`}>
+            {project.name}
+          </h3>
+
+          {/* Info Description */}
+          <p className={`text-xs sm:text-sm line-clamp-3 leading-relaxed font-medium ${
+            darkmode ? "text-slate-300" : "text-slate-600"
+          }`}>
+            {project.info}
+          </p>
         </div>
-      </motion.div>
-    </AnimatePresence>
+
+        {/* Footer: Tags and Link */}
+        <div className="flex flex-col gap-4 mt-auto">
+          {/* Stack Tags */}
+          <div className="flex flex-wrap gap-1.5">
+            {project.tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className={`text-[10px] font-semibold px-2 py-0.5 rounded ${
+                  darkmode
+                    ? "bg-slate-800/80 text-slate-300 border border-slate-700/40"
+                    : "bg-slate-100 text-slate-600 border border-slate-200/50"
+                }`}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA Link Button */}
+          <motion.a 
+            target="_blank" 
+            href={project.link}
+            rel="noopener noreferrer"
+            className="w-full mt-1"
+          >
+            <motion.button
+              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.02 }}
+              className={`w-full py-2.5 flex gap-2 items-center justify-center rounded-lg font-semibold text-sm transition-all duration-300 ${
+                darkmode 
+                  ? "bg-indigo-600 hover:bg-indigo-500 text-white shadow-[0_4px_12px_rgba(79,70,229,0.3)]" 
+                  : "bg-blue-600 hover:bg-blue-700 text-white shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
+              }`}
+            >
+              Live Demo <BsArrowUpRight size={16} className="font-bold" />
+            </motion.button>
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
 export default Single;
+
