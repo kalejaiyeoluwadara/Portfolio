@@ -1,11 +1,35 @@
 const list = [
   {
+    name: "Jenick Travels",
+    info: "A premium travel and tour agency portal featuring seamless flight booking interfaces, comprehensive visa processing guides, and educational travel consulting services.",
+    img: "/jenick.png",
+    link: "https://jenicktravels.com/",
+    category: "Frontend",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"]
+  },
+  {
     name: "IluEats",
     info: "A hyper-local food delivery web application connecting residents of Ilisan, Nigeria to local restaurants, cafes, and bakeries with real-time checkout and cart management.",
     img: "/ilueats.png",
     link: "https://ilueats.vercel.app/",
     category: "Fullstack",
-    tags: ["Next.js", "Tailwind CSS", "React", "Mobile-First"]
+    tags: ["Next.js", "Tailwind CSS", "Mobile-First"]
+  },
+  {
+    name: "Ren Reviews",
+    info: "A fullstack feedback platform enabling companies to easily collect, manage, and share authentic customer reviews in real-time.",
+    img: "/ren.png",
+    link: "https://ren-eight.vercel.app/",
+    category: "Fullstack",
+    tags: ["React"]
+  },
+  {
+    name: "Pocketly",
+    info: "A smart expense tracker and budget manager featuring AI spending insights, financial reports, and custom pockets to effortlessly monitor and optimize your personal finances.",
+    img: "/pocketly.png",
+    link: "https://pocketly.space/auth?callbackUrl=%2F",
+    category: "AI & Tools",
+    tags: ["Next.js", "Tailwind CSS", "Recharts", "AI Analytics"]
   },
   {
     name: "SkyBoard Games",
@@ -16,23 +40,7 @@ const list = [
     tags: ["Bootstrap 5", "HTML5", "CSS3", "JavaScript"]
   },
   {
-    name: "Jenick Travels",
-    info: "A premium travel and tour agency portal featuring seamless flight booking interfaces, comprehensive visa processing guides, and educational travel consulting services.",
-    img: "/jenick.png",
-    link: "https://jenicktravels.com/",
-    category: "Frontend",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "UI/UX"]
-  },
-  {
-    name: "Ren Reviews",
-    info: "A fullstack feedback platform enabling companies to easily collect, manage, and share authentic customer reviews in real-time.",
-    img: "/ren.png",
-    link: "https://ren-eight.vercel.app/",
-    category: "Fullstack",
-    tags: ["React", "Node.js", "Firebase", "CSS Modules"]
-  },
-  {
-    name: "Tetra Payments",
+    name: "Tetra Pay",
     info: "A modern fintech landing page and flow designed to make contactless payments effortless and seamless for users across Africa.",
     img: "/tetra.png",
     link: "https://www.paywithtetra.com/",

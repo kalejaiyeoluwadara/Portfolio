@@ -178,20 +178,24 @@ function Body({ darkmode }) {
 
           {/* Right Side: Profile Blob Illustration with Gradient & Shadow */}
           <motion.div 
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
             className="flex-shrink-0 flex items-center justify-center relative sm:mb-0 mb-6"
           >
-            <div className={`box sm:h-[300px] h-[200px] sm:w-[300px] w-[200px] bg-gradient-to-tr ${darkmode
-                ? "from-indigo-600 via-indigo-700 to-purple-600 shadow-[0_20px_50px_rgba(99,102,241,0.3)] border border-slate-700/50"
-                : "from-blue-600 via-indigo-600 to-blue-500 shadow-[0_20px_50px_rgba(37,99,235,0.25)] border border-white/20"
-              } flex items-center justify-center overflow-hidden transition-all duration-300`}>
+            <motion.div
+              whileHover={{ scale: 1.06, rotate: 3 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              className={`box sm:h-[300px] h-[200px] sm:w-[300px] w-[200px] bg-gradient-to-tr ${darkmode
+                  ? "from-indigo-600 via-indigo-700 to-purple-600 shadow-[0_20px_50px_rgba(99,102,241,0.3)] border border-slate-700/50"
+                  : "from-blue-600 via-indigo-600 to-blue-500 shadow-[0_20px_50px_rgba(37,99,235,0.25)] border border-white/20"
+                } flex items-center justify-center overflow-hidden transition-all duration-300`}
+            >
               <img
                 src={img}
                 className="sm:h-[300px] h-[200px] sm:w-[300px] w-[200px] object-cover pointer-events-none select-none"
                 alt="Profile Illustration"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Bouncy Scroll Indicator */}
