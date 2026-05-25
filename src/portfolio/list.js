@@ -1,5 +1,29 @@
 const list = [
   {
+    name: "IluEats",
+    info: "A hyper-local food delivery web application connecting residents of Ilisan, Nigeria to local restaurants, cafes, and bakeries with real-time checkout and cart management.",
+    img: "/ilueats.png",
+    link: "https://ilueats.vercel.app/",
+    category: "Fullstack",
+    tags: ["Next.js", "Tailwind CSS", "React", "Mobile-First"]
+  },
+  {
+    name: "SkyBoard Games",
+    info: "Nigeria's premier competitive gaming arena where players challenge celebrities, join global tournaments in Chess, Ludo, and Snooker, and win cash prizes.",
+    img: "/skyboard.png",
+    link: "https://skyboardgames.com/",
+    category: "Frontend",
+    tags: ["Bootstrap 5", "HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    name: "Jenick Travels",
+    info: "A premium travel and tour agency portal featuring seamless flight booking interfaces, comprehensive visa processing guides, and educational travel consulting services.",
+    img: "/jenick.png",
+    link: "https://jenicktravels.com/",
+    category: "Frontend",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "UI/UX"]
+  },
+  {
     name: "Ren Reviews",
     info: "A fullstack feedback platform enabling companies to easily collect, manage, and share authentic customer reviews in real-time.",
     img: "/ren.png",
@@ -24,28 +48,12 @@ const list = [
     tags: ["React", "Vite", "Tailwind CSS", "Responsive Design"]
   },
   {
-    name: "Belongeen E-Commerce",
-    info: "Backend architecture and admin dashboards for a campus delivery network, handling food vendors, cart logic, and delivery routing.",
-    img: "/belongeen.png",
-    link: "https://belongeen.vercel.app/",
-    category: "Fullstack",
-    tags: ["React", "Node.js", "Express", "MongoDB", "Redux"]
-  },
-  {
     name: "MyHomeEtal Admin Webapp",
     info: "Enterprise admin dashboard featuring Server-Side Rendering (SSR), data caching, employee management, and complex sales analytics.",
     img: "/homeetal.png",
     link: "https://myhomeetal-admin-brown.vercel.app/",
     category: "Fullstack",
     tags: ["Next.js", "Tailwind CSS", "Server Actions", "REST APIs"]
-  },
-  {
-    name: "YGPT AI",
-    info: "AI Yoruba assistant & study buddy that interprets local dialects, summarizes PDFs, generates quizzes, and records voice study notes.",
-    img: "/ygpt.png",
-    link: "https://ygpt-five.vercel.app/",
-    category: "AI & Tools",
-    tags: ["React", "OpenAI API", "Tailwind CSS", "Web Speech API"]
   }
 ];
 
