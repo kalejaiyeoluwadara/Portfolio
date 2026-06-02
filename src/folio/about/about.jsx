@@ -112,7 +112,7 @@ function About({ darkmode }) {
                 scale: 1.02,
               }}
               target="_blank"
-              href="https://docs.google.com/document/d/1Eq6vPZnrJ7e2fJNjnZHt4BaxDTXlGqJd/edit?rtpof=true"
+              href="https://docs.google.com/document/d/1rahYuOiUbKHWYQsAepw7IB9eFY5HCF3g/edit?usp=sharing&ouid=113363007071290601963&rtpof=true&sd=true"
               rel="noopener noreferrer"
               className={`w-[180px] h-[52px] flex items-center justify-center gap-3 text-white rounded-xl font-bold transition-all duration-300 shadow-md ${
                 darkmode 
