@@ -12,6 +12,7 @@ import Modal from '../services/modal';
 import { motion, AnimatePresence } from "framer-motion";
 import Services from '../services/services';
 import Testimonials from '../test/test';
+import Community from '../community/community';
 import Mobile from '../nav/mobile';
 import Form from '../input/form';
 import InteractiveBackground from '../background/InteractiveBackground';
@@ -35,7 +36,7 @@ function Admin() {
     <div className={`relative ${darkmode && "bg-gray-900 text-white"}`}>
       <InteractiveBackground darkmode={darkmode} />
       <div>
-        {width > 600 && <Nav darkmode={darkmode} setDarkMode={setDarkMode} />}
+        <Nav darkmode={darkmode} setDarkMode={setDarkMode} />
         <Body darkmode={darkmode} />
         <About darkmode={darkmode} />
         <Skill darkmode={darkmode} />
@@ -61,12 +62,13 @@ function Admin() {
           setModal={setModal}
         />
         <Port darkmode={darkmode} />
+        <Community darkmode={darkmode} />
         <Contact darkmode={darkmode} />
         <Testimonials darkmode={darkmode} />
         {/* <Input darkmode={darkmode} /> */}
         <Form darkmode={darkmode} />
       </div>
-      {width <= 600 && <Mobile darkmode={darkmode} setDarkMode={setDarkMode} />}
+      <Mobile darkmode={darkmode} setDarkMode={setDarkMode} />
     </div>
   );
 }

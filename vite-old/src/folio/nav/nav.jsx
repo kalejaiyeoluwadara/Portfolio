@@ -6,7 +6,7 @@ const Nav = ({darkmode,setDarkMode}) =>{
 
     return (
       <div
-        className={`glass flex items-center sm:w-screen fixed top-0 z-20 shadow-sm justify-center   ${
+        className={`glass hidden sm:flex items-center sm:w-screen fixed top-0 z-20 shadow-sm justify-center   ${
           darkmode && " glassb"
         }`}
       >
@@ -37,6 +37,11 @@ const Nav = ({darkmode,setDarkMode}) =>{
             <a href="#portfolio">
               <p className="text:bg-indigo-7 opacity-[0.8] duration-500 font-[600] cursor-pointer active:text-indigo-500 hover:text-indigo-500">
                 Portfolio
+              </p>
+            </a>
+            <a href="#community">
+              <p className="text:bg-indigo-7 opacity-[0.8] duration-500 font-[600] cursor-pointer active:text-indigo-500 hover:text-indigo-500">
+                Community
               </p>
             </a>
             <a href="#cont">
