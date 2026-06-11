@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { useGlobal } from "@/context/PortfolioContext";
 
-function Background({ darkmode }) {
+function Background() {
+  const { darkmode } = useGlobal();
   const canvasRef = useRef(null);
 
   useEffect(() => {

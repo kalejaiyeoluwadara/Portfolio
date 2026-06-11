@@ -18,6 +18,23 @@ export function PortfolioProvider({ children }) {
     }
   }, []);
 
+  // Sync darkmode state to document element and body classes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const root = document.documentElement;
+      if (darkmode) {
+        root.classList.add("dark");
+        document.body.classList.add("bg-gray-900", "text-white");
+        document.body.classList.remove("bg-white", "text-slate-800");
+      } else {
+        root.classList.remove("dark");
+        document.body.classList.add("bg-white", "text-slate-800");
+        document.body.classList.remove("bg-gray-900", "text-white");
+      }
+    }
+  }, [darkmode]);
+
+
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
       const next = !prev;

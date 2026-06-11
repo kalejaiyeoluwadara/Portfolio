@@ -12,17 +12,11 @@ import Portfolio from "@/components/sections/Portfolio";
 import Community from "@/components/sections/Community";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
-import { useGlobal } from "@/context/PortfolioContext";
-
 export default function Home() {
-  const { darkmode } = useGlobal();
-
   return (
-    <div className={`relative min-h-screen transition-colors duration-300 ${
-      darkmode ? "bg-gray-900 text-white" : "bg-white text-slate-800"
-    }`}>
+    <div className="relative min-h-screen">
       {/* Interactive canvas background */}
-      <Background darkmode={darkmode} />
+      <Background />
       
       {/* Navbars */}
       <Navbar />
