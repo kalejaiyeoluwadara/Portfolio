@@ -12,7 +12,7 @@ import { useGlobal } from "@/context/PortfolioContext";
 // Nested subcomponent for rendering animated skill bar
 const SkillBar = ({ type, percentage }) => {
   return (
-    <div className="w-[300px] flex flex-col gap-2 mb-4">
+    <div className="w-full max-w-[300px] flex flex-col gap-2 mb-4">
       <div className="flex w-full justify-between">
         <h4 className="font-semibold text-sm sm:text-base">{type}</h4>
         <p className="opacity-80 text-sm">{percentage}%</p>
@@ -73,7 +73,7 @@ function Skills() {
       <div className="h-auto w-[90%] sm:w-[80%] relative justify-start items-center flex flex-col gap-10">
         <Head h1="Skills" p="My technical skills" darkmode={darkmode} />
         
-        <div className="grid sm:grid-cols-2 grid-cols-1 gap-12 mt-6 w-full justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mt-6 w-full justify-items-center items-start">
           {/* Frontend Accordion */}
           <div className="flex flex-col w-full max-w-[350px] border border-slate-200/60 dark:border-slate-800/80 p-5 rounded-2xl bg-white/5 dark:bg-slate-900/10 shadow-sm">
             <div className="flex flex-col w-full gap-2">
@@ -91,7 +91,7 @@ function Skills() {
               <AnimatePresence initial={false}>
                 {fr && (
                   <motion.div
-                    className="flex flex-col items-center pt-4"
+                    className="flex flex-col items-center pt-4 w-full"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -125,7 +125,7 @@ function Skills() {
               <AnimatePresence initial={false}>
                 {ds && (
                   <motion.div
-                    className="flex flex-col items-center pt-4"
+                    className="flex flex-col items-center pt-4 w-full"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -157,7 +157,7 @@ function Skills() {
               <AnimatePresence initial={false}>
                 {br && (
                   <motion.div
-                    className="flex flex-col items-center pt-4"
+                    className="flex flex-col items-center pt-4 w-full"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
