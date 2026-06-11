@@ -1,8 +1,0 @@
-.tests::-webkit-scrollbar {
-    display: none;
-}
-
-.tests {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
