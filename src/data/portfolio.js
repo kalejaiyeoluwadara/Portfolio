@@ -54,16 +54,7 @@ const portfolioData = [
     category: "Frontend",
     tags: ["JavaScript", "Bootstrap 5"],
   },
-  {
-    name: "MyHomeEtal Admin",
-    year: "2024",
-    role: "Fullstack",
-    info: "Enterprise admin dashboard with SSR, data caching, employee management, and sales analytics.",
-    img: "/homeetal.png",
-    link: "https://myhomeetal-admin-brown.vercel.app/",
-    category: "Fullstack",
-    tags: ["Next.js", "Server Actions"],
-  },
+  
   {
     name: "Jenick Travels",
     year: "2023",
