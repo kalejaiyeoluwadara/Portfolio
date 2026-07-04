@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BsArrowUpRight } from "react-icons/bs";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import portfolioData from "@/data/portfolio";
 import { EASE, fadeUp, stagger, viewportOnce } from "@/lib/motion";
 
 const featured = portfolioData.filter((p) => p.featured);
 const archive = portfolioData.filter((p) => !p.featured);
+const pad = (n) => String(n).padStart(2, "0");
 
 // Section header: mono eyebrow over a hairline rule
 export function SectionHead({ index, label }) {
@@ -29,8 +30,139 @@ export function SectionHead({ index, label }) {
   );
 }
 
-// Large case-study row — image plate de-scales into place on scroll
-function FeaturedProject({ project, flip }) {
+/* ─────────────────────────────────────────────
+   Desktop: sticky scroll gallery.
+   The image plate pins while the project facts
+   scroll past; the pinned image crossfades as
+   each project crosses the vertical center.
+   ───────────────────────────────────────────── */
+
+// One tall panel of facts. Reports "active" when it hits the viewport center.
+function StickyPanel({ project, index, total, isActive, onEnter }) {
+  const ref = useRef(null);
+  // Fires only while this panel straddles the exact vertical center
+  const inView = useInView(ref, { margin: "-50% 0px -50% 0px" });
+
+  useEffect(() => {
+    if (inView) onEnter(index);
+  }, [inView, index, onEnter]);
+
+  return (
+    <div ref={ref} className="flex min-h-[82vh] flex-col justify-center">
+      <motion.div
+        animate={{ opacity: isActive ? 1 : 0.32 }}
+        transition={{ duration: 0.5, ease: EASE }}
+        className="flex flex-col gap-4"
+      >
+        <div className="flex items-baseline gap-3">
+          <span className="font-mono text-[12px] text-cobalt">{pad(index + 1)}</span>
+          <span className="eyebrow">/ {pad(total)}</span>
+        </div>
+        <div className="flex items-baseline gap-3">
+          <h3 className="font-display text-[34px] leading-none">{project.name}</h3>
+          <span className="eyebrow">{project.year}</span>
+        </div>
+        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-cobalt">
+          {project.role}
+        </p>
+        <p className="max-w-[420px] text-[14px] leading-relaxed text-coal/70 dark:text-cream/70">
+          {project.info}
+        </p>
+        <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-muted">
+          {project.tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabIndex={isActive ? 0 : -1}
+          className="nav-link mt-1 inline-flex w-fit items-center gap-1.5 text-[13px] font-semibold"
+        >
+          Visit live <BsArrowUpRight size={12} />
+        </a>
+      </motion.div>
+    </div>
+  );
+}
+
+function StickyGallery() {
+  const [active, setActive] = useState(0);
+  const total = featured.length;
+  const progress = total > 1 ? (active / (total - 1)) * 100 : 100;
+
+  return (
+    <div className="hidden lg:grid grid-cols-12 gap-10">
+      {/* Pinned image plate */}
+      <div className="col-span-8">
+        <div className="sticky top-[11vh] h-[78vh] overflow-hidden rounded-xl border border-line bg-ink-2/40">
+          {/* Progress bar */}
+          <div className="absolute inset-x-0 top-0 z-20 h-[2px] bg-white/10">
+            <motion.div
+              className="h-full bg-cobalt"
+              animate={{ width: `${progress}%` }}
+              transition={{ duration: 0.5, ease: EASE }}
+            />
+          </div>
+
+          {/* Stacked images — active one fades/scales in */}
+          {featured.map((project, i) => (
+            <motion.a
+              key={project.name}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-hidden={active !== i}
+              tabIndex={-1}
+              className="group absolute inset-0 block"
+              animate={{ opacity: active === i ? 1 : 0, scale: active === i ? 1 : 1.05 }}
+              transition={{ duration: 0.7, ease: EASE }}
+              style={{ pointerEvents: active === i ? "auto" : "none" }}
+            >
+              <Image
+                src={project.img}
+                alt={project.name}
+                fill
+                sizes="640px"
+                className="object-contain object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              />
+              {/* Bottom scrim keeps the label legible on any screenshot */}
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent p-5 pt-16">
+                <div>
+                  <p className="font-display-md text-[19px] text-cream">{project.name}</p>
+                  <p className="font-mono text-[11px] text-cream/70">{project.category}</p>
+                </div>
+                <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-cream text-ink transition-transform duration-300 group-hover:rotate-0 -rotate-45">
+                  <BsArrowUpRight size={15} />
+                </span>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+
+      {/* Scrolling facts */}
+      <div className="col-span-4">
+        {featured.map((project, i) => (
+          <StickyPanel
+            key={project.name}
+            project={project}
+            index={i}
+            total={total}
+            isActive={active === i}
+            onEnter={setActive}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   Mobile fallback: simple stacked case cards.
+   ───────────────────────────────────────────── */
+function MobileFeatured({ project }) {
   const reducedMotion = useReducedMotion();
 
   return (
@@ -39,19 +171,14 @@ function FeaturedProject({ project, flip }) {
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
-      className={`grid grid-cols-1 items-end gap-6 lg:gap-12 lg:grid-cols-12 ${
-        flip ? "" : ""
-      }`}
+      className="flex flex-col gap-6"
     >
-      {/* Image plate */}
       <motion.a
         variants={fadeUp}
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className={`group relative block overflow-hidden rounded-xl border border-line lg:col-span-8 ${
-          flip ? "lg:order-2" : ""
-        }`}
+        className="group relative block overflow-hidden rounded-xl border border-line"
       >
         <motion.div
           initial={reducedMotion ? false : { scale: 1.12 }}
@@ -64,24 +191,15 @@ function FeaturedProject({ project, flip }) {
             src={project.img}
             alt={project.name}
             fill
-            sizes="(max-width: 1024px) 100vw, 720px"
-            className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            sizes="100vw"
+            className="object-cover object-top"
           />
         </motion.div>
-        <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-ink/70 text-cream opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-hover:rotate-0 -rotate-45">
-          <BsArrowUpRight size={15} />
-        </span>
       </motion.a>
 
-      {/* Case facts */}
-      <motion.div
-        variants={fadeUp}
-        className={`flex flex-col gap-4 lg:col-span-4 lg:pb-2 ${flip ? "lg:order-1" : ""}`}
-      >
+      <motion.div variants={fadeUp} className="flex flex-col gap-3">
         <div className="flex items-baseline gap-3">
-          <h3 className="font-display-md text-[26px] sm:text-[30px] leading-tight">
-            {project.name}
-          </h3>
+          <h3 className="font-display-md text-[26px] leading-tight">{project.name}</h3>
           <span className="eyebrow">{project.year}</span>
         </div>
         <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-cobalt">
@@ -140,9 +258,13 @@ function Work() {
     <section id="work" className="mx-auto w-full max-w-[1100px] px-5 sm:px-8 py-20 sm:py-28">
       <SectionHead index="02" label="Selected work" />
 
-      <div className="flex flex-col gap-20 sm:gap-28">
-        {featured.map((project, i) => (
-          <FeaturedProject key={project.name} project={project} flip={i % 2 === 1} />
+      {/* Desktop sticky gallery */}
+      <StickyGallery />
+
+      {/* Mobile stacked cards */}
+      <div className="flex flex-col gap-20 lg:hidden">
+        {featured.map((project) => (
+          <MobileFeatured key={project.name} project={project} />
         ))}
       </div>
 
