@@ -3,7 +3,7 @@ const portfolioData = [
   {
     name: "CodeRed",
     featured: true,
-    year: "2025",
+    year: "2026",
     role: "Design & full-stack build",
     info: "A real-time matching platform connecting voluntary blood donors to blood banks and hospitals across Nigeria — faster dispatch, fewer shortages, more lives saved.",
     img: "/codered.png",
@@ -14,7 +14,7 @@ const portfolioData = [
   {
     name: "Baseline",
     featured: true,
-    year: "2025",
+    year: "2026",
     role: "Design & full-stack build",
     info: "A verified off-campus housing marketplace for Nigerian university students — NIN-verified listings, real photos, and free browsing near campuses like Babcock.",
     img: "/baseline.png",
@@ -25,7 +25,7 @@ const portfolioData = [
   {
     name: "IluEats",
     featured: true,
-    year: "2024",
+    year: "2026",
     role: "Design & full-stack build",
     info: "A hyper-local food delivery app connecting residents of Ilisan, Nigeria to nearby restaurants and bakeries — cart, checkout, and order flow built mobile-first for the people who actually use it.",
     img: "/ilu.png",
@@ -46,7 +46,7 @@ const portfolioData = [
   },
   {
     name: "SkyBoard Games",
-    year: "2024",
+    year: "2026",
     role: "Frontend",
     info: "Competitive gaming arena where players challenge celebrities and join tournaments in Chess, Ludo, and Snooker.",
     img: "/skyboard.png",
@@ -57,7 +57,7 @@ const portfolioData = [
   
   {
     name: "Jenick Travels",
-    year: "2023",
+    year: "2026",
     role: "Frontend",
     info: "Travel and tour agency portal with flight booking interfaces and visa processing guides.",
     img: "/jenick.png",
@@ -67,7 +67,7 @@ const portfolioData = [
   },
   {
     name: "NexGen Academy",
-    year: "2023",
+    year: "2024",
     role: "Frontend",
     info: "Responsive portal for a tech academy — courses, bootcamps, and student registration.",
     img: "/nexgen.png",
