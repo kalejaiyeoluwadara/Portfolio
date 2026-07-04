@@ -5,8 +5,8 @@ import { BsMoonStars, BsSun } from "react-icons/bs";
 import { useGlobal } from "@/context/PortfolioContext";
 
 const LINKS = [
-  { href: "#work", label: "Work" },
   { href: "#about", label: "About" },
+  { href: "#work", label: "Work" },
   { href: "#community", label: "Community" },
   { href: "#contact", label: "Contact" },
 ];

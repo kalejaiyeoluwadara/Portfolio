@@ -28,7 +28,7 @@ function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <section id="home" ref={ref} className="relative flex min-h-[92vh] items-center">
+    <section id="home" ref={ref} className="relative md:mt-0 mt-8 flex min-h-[92vh] items-center">
       <motion.div
         style={reducedMotion ? undefined : { opacity: contentOpacity, y: contentY }}
         className="mx-auto w-full max-w-[1100px] px-5 sm:px-8"

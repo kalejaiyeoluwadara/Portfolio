@@ -48,8 +48,8 @@ function CommandPalette() {
   const commands = useMemo(
     () => [
       { group: "Navigate", label: "Home", icon: BsHouse, run: () => goTo("#home") },
-      { group: "Navigate", label: "Selected work", icon: BsGrid, run: () => goTo("#work") },
       { group: "Navigate", label: "About", icon: BsPerson, run: () => goTo("#about") },
+      { group: "Navigate", label: "Selected work", icon: BsGrid, run: () => goTo("#work") },
       { group: "Navigate", label: "Community", icon: BsPeople, run: () => goTo("#community") },
       { group: "Navigate", label: "Contact", icon: BsChatLeftText, run: () => goTo("#contact") },
       {

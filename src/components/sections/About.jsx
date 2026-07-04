@@ -1,11 +1,63 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { BsArrowUpRight } from "react-icons/bs";
-import { motion } from "framer-motion";
-import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { EASE, fadeUp, stagger, viewportOnce } from "@/lib/motion";
 import { SectionHead } from "./Work";
+
+// Portrait: clip-path curtain reveal on entry, then a slow inner parallax
+// as the page scrolls past — the image drifts inside its frame.
+function Portrait() {
+  const ref = useRef(null);
+  const reducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
+
+  return (
+    <div
+      ref={ref}
+      className="relative aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-xl border border-line"
+    >
+      {/* Uses "hidden"/"visible" variants so the parent section's
+          whileInView orchestration controls it — a nested whileInView
+          object would be overridden by the parent's variant propagation */}
+      <motion.div
+        variants={
+          reducedMotion
+            ? undefined
+            : {
+                hidden: { clipPath: "inset(100% 0% 0% 0%)", scale: 1.18 },
+                visible: {
+                  clipPath: "inset(0% 0% 0% 0%)",
+                  scale: 1,
+                  transition: { duration: 1.2, ease: EASE },
+                },
+              }
+        }
+        className="absolute inset-0 will-change-transform"
+      >
+        {/* Oversized wrapper so the parallax drift never exposes the frame edges */}
+        <motion.div
+          style={reducedMotion ? undefined : { y: parallaxY }}
+          className="absolute -inset-y-[10%] inset-x-0"
+        >
+          <Image
+            src="/profile.png"
+            alt="Oluwadara Kalejaiye"
+            fill
+            sizes="(max-width: 1024px) 100vw, 340px"
+            className="object-cover"
+          />
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+}
 
 // What I actually work with, grouped by what it's used for — no percentages
 const stack = [
@@ -40,7 +92,7 @@ const services = [
 function About() {
   return (
     <section id="about" className="mx-auto w-full max-w-[1100px] px-5 sm:px-8 py-20 sm:py-28">
-      <SectionHead index="02" label="About" />
+      <SectionHead index="01" label="About" />
 
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Portrait */}
@@ -51,15 +103,7 @@ function About() {
           viewport={viewportOnce}
           className="lg:col-span-4"
         >
-          <div className="relative aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-xl border border-line">
-            <Image
-              src="/profile.png"
-              alt="Oluwadara Kalejaiye"
-              fill
-              sizes="(max-width: 1024px) 100vw, 340px"
-              className="object-cover"
-            />
-          </div>
+          <Portrait />
         </motion.div>
 
         {/* Bio + stack ledger */}

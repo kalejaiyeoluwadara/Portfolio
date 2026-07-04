@@ -138,7 +138,7 @@ function ArchiveRow({ project }) {
 function Work() {
   return (
     <section id="work" className="mx-auto w-full max-w-[1100px] px-5 sm:px-8 py-20 sm:py-28">
-      <SectionHead index="01" label="Selected work" />
+      <SectionHead index="02" label="Selected work" />
 
       <div className="flex flex-col gap-20 sm:gap-28">
         {featured.map((project, i) => (
