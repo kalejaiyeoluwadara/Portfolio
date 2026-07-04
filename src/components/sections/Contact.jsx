@@ -3,8 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { BsArrowUpRight, BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "@/config/firebase";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 import { SectionHead } from "./Work";
 
@@ -45,10 +43,14 @@ function Contact() {
 
     setStatus("sending");
     try {
-      await addDoc(collection(db, "messages"), {
-        ...data,
-        createdAt: new Date().toISOString(),
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
+
+      if (!res.ok) throw new Error("Request failed");
+
       setStatus("sent");
       form.reset();
       setTimeout(() => setStatus("idle"), 5000);
@@ -113,7 +115,7 @@ function Contact() {
           className="flex flex-col gap-2 lg:col-span-6"
         >
           <label className="eyebrow" htmlFor="contact-name">Name</label>
-          <input id="contact-name" name="name" required placeholder="Ada Lovelace" className={inputStyles} />
+          <input id="contact-name" name="name" required placeholder="Tinubu" className={inputStyles} />
 
           <label className="eyebrow mt-6" htmlFor="contact-email">Email</label>
           <input id="contact-email" name="email" type="email" required placeholder="you@company.com" className={inputStyles} />
