@@ -76,12 +76,7 @@ function Hero() {
             }}
             className="mt-8 max-w-[560px] text-[15px] sm:text-[16px] leading-relaxed text-coal/70 dark:text-cream/70"
           >
-            Full-stack engineer and designer. My recent work spans how people
-            pay, eat, and gather across Nigeria — from{" "}
-            <a href="#work" className="text-cobalt underline decoration-cobalt/30 underline-offset-4 hover:decoration-cobalt transition-colors">
-              Pocketly and Tetra Pay
-            </a>{" "}
-            to eleven platforms built for Babcock University&apos;s computer club.
+           Full-stack engineer with a passion for creating elegant, functional software. I work across design systems, frontend development, and backend architecture to build products people genuinely enjoy using.
           </motion.p>
 
           {/* CTAs */}

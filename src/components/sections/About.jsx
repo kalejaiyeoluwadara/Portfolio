@@ -53,11 +53,11 @@ function About() {
         >
           <div className="relative aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-xl border border-line">
             <Image
-              src="/pi.jpg"
+              src="/profile.png"
               alt="Oluwadara Kalejaiye"
               fill
               sizes="(max-width: 1024px) 100vw, 340px"
-              className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
+              className="object-cover"
             />
           </div>
         </motion.div>

@@ -1,17 +1,6 @@
 // Featured entries get the large case-study treatment; the rest render in the archive list.
 const portfolioData = [
   {
-    name: "Pocketly",
-    featured: true,
-    year: "2025",
-    role: "Design & full-stack build",
-    info: "A personal finance app with AI spending insights, custom budget pockets, and financial reports. Built end-to-end: product design, frontend, data layer, and the AI analytics pipeline.",
-    img: "/pocket.png",
-    link: "https://pocketly.space",
-    category: "AI & Tools",
-    tags: ["Next.js", "Tailwind CSS", "Recharts", "AI Analytics"],
-  },
-  {
     name: "CodeRed",
     featured: true,
     year: "2025",
@@ -45,14 +34,15 @@ const portfolioData = [
     tags: ["Next.js", "Tailwind CSS", "Mobile-First"],
   },
   {
-    name: "Tetra Pay",
-    year: "2024",
-    role: "Frontend & motion design",
-    info: "Landing page and onboarding flow for a contactless payments product serving users across Africa.",
-    img: "/tetra.png",
-    link: "https://www.paywithtetra.com/",
-    category: "Fintech",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    name: "Pocketly",
+    featured: true,
+    year: "2025",
+    role: "Design & full-stack build",
+    info: "A personal finance app with AI spending insights, custom budget pockets, and financial reports. Built end-to-end: product design, frontend, data layer, and the AI analytics pipeline.",
+    img: "/pocket.png",
+    link: "https://pocketly.space",
+    category: "AI & Tools",
+    tags: ["Next.js", "Tailwind CSS", "Recharts", "AI Analytics"],
   },
   {
     name: "SkyBoard Games",
@@ -83,16 +73,6 @@ const portfolioData = [
     link: "https://jenicktravels.com/",
     category: "Frontend",
     tags: ["Next.js", "Framer Motion"],
-  },
-  {
-    name: "Ren Reviews",
-    year: "2023",
-    role: "Fullstack",
-    info: "Feedback platform for companies to collect, manage, and share customer reviews in real time.",
-    img: "/ren.png",
-    link: "https://ren-eight.vercel.app/",
-    category: "Fullstack",
-    tags: ["React"],
   },
   {
     name: "NexGen Academy",
