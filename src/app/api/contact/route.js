@@ -1,5 +1,26 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import clientPromise from "@/lib/mongodb";
+
+export async function GET() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("admin_token")?.value;
+
+  if (!token || token !== process.env.ADMIN_PASSWORD) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const client = await clientPromise;
+  const db = client.db();
+
+  const messages = await db
+    .collection("messages")
+    .find({})
+    .sort({ createdAt: -1 })
+    .toArray();
+
+  return NextResponse.json({ messages });
+}
 
 export async function POST(request) {
   try {

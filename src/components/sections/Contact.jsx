@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { BsArrowUpRight, BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsLinkedin, BsTwitterX, BsCheckLg } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 import { SectionHead } from "./Work";
@@ -32,6 +32,15 @@ function LagosTime() {
 const inputStyles =
   "w-full border-b border-line bg-transparent py-3 text-[15px] outline-none transition-colors placeholder:text-muted focus:border-cobalt";
 
+function Spinner() {
+  return (
+    <span
+      aria-hidden
+      className="inline-block h-[14px] w-[14px] animate-spin rounded-full border-2 border-current border-t-transparent"
+    />
+  );
+}
+
 function Contact() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [copied, setCopied] = useState(false);
@@ -53,7 +62,6 @@ function Contact() {
 
       setStatus("sent");
       form.reset();
-      setTimeout(() => setStatus("idle"), 5000);
     } catch (error) {
       console.error("Error sending message:", error);
       setStatus("error");
@@ -134,22 +142,21 @@ function Contact() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="inline-flex items-center gap-2 rounded-full bg-coal px-6 py-3.5 text-[14px] font-semibold text-paper transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98] disabled:opacity-50 dark:bg-cream dark:text-ink cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full bg-coal px-6 py-3.5 text-[14px] font-semibold text-paper transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100 dark:bg-cream dark:text-ink cursor-pointer"
             >
-              {status === "sending" ? "Sending…" : "Send message"}
-              <BsArrowUpRight size={13} />
+              {status === "sending" ? (
+                <>
+                  <Spinner />
+                  Sending
+                </>
+              ) : (
+                <>
+                  Send message
+                  <BsArrowUpRight size={13} />
+                </>
+              )}
             </button>
             <AnimatePresence>
-              {status === "sent" && (
-                <motion.p
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="font-mono text-[12px] text-emerald-500"
-                >
-                  Sent — I&apos;ll reply within a day.
-                </motion.p>
-              )}
               {status === "error" && (
                 <motion.p
                   initial={{ opacity: 0, x: -8 }}
@@ -177,6 +184,47 @@ function Contact() {
           Back to top ↑
         </a>
       </footer>
+
+      {/* Success modal */}
+      <AnimatePresence>
+        {status === "sent" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setStatus("idle")}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-coal/50 px-5 backdrop-blur-sm"
+          >
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              initial={{ opacity: 0, scale: 0.94, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 8 }}
+              transition={{ type: "spring", stiffness: 320, damping: 26 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-[400px] rounded-2xl bg-paper p-8 text-center shadow-2xl dark:bg-ink"
+            >
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/12 text-emerald-500">
+                <BsCheckLg size={26} />
+              </div>
+              <h3 className="font-display text-[22px] leading-tight">
+                Message sent
+              </h3>
+              <p className="mt-2 text-[14px] text-muted">
+                Thanks for reaching out — I&apos;ve received your message and
+                will get back to you within a day.
+              </p>
+              <button
+                onClick={() => setStatus("idle")}
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-coal px-6 py-3 text-[14px] font-semibold text-paper transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98] dark:bg-cream dark:text-ink cursor-pointer"
+              >
+                Done
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
