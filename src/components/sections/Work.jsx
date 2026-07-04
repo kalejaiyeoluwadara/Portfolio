@@ -84,7 +84,9 @@ function FeaturedProject({ project, flip }) {
           </h3>
           <span className="eyebrow">{project.year}</span>
         </div>
-        <p className="eyebrow !text-cobalt">{project.role}</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-cobalt">
+          {project.role}
+        </p>
         <p className="text-[14px] leading-relaxed text-coal/70 dark:text-cream/70">
           {project.info}
         </p>

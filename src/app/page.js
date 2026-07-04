@@ -1,38 +1,31 @@
 "use client";
 
 import React from "react";
-import Background from "@/components/ui/Background";
+import { MotionConfig } from "framer-motion";
+import SmoothScroll from "@/components/ui/SmoothScroll";
+import CommandPalette from "@/components/ui/CommandPalette";
 import Navbar from "@/components/layout/Navbar";
-import MobileMenu from "@/components/layout/MobileMenu";
 import Hero from "@/components/sections/Hero";
+import Work from "@/components/sections/Work";
 import About from "@/components/sections/About";
-import Skills from "@/components/sections/Skills";
-import Services from "@/components/sections/Services";
-import Portfolio from "@/components/sections/Portfolio";
 import Community from "@/components/sections/Community";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
+
 export default function Home() {
   return (
-    <div className="relative min-h-screen">
-      {/* Interactive canvas background */}
-      <Background />
-      
-      {/* Navbars */}
+    <MotionConfig reducedMotion="user">
+      <SmoothScroll />
+      <CommandPalette />
       <Navbar />
-      <MobileMenu />
-      
-      {/* Page Sections */}
-      <main className="pb-16 sm:pb-0">
+      <main>
         <Hero />
+        <Work />
         <About />
-        <Skills />
-        <Services />
-        <Portfolio />
         <Community />
         <Testimonials />
         <Contact />
       </main>
-    </div>
+    </MotionConfig>
   );
 }
