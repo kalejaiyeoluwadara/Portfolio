@@ -141,6 +141,8 @@ function About() {
             </h3>
             <p className="max-w-[560px] text-[15px] leading-relaxed text-coal/70 dark:text-cream/70">
             I&apos;m Oluwadara Kalejaiye, a full-stack engineer and product designer who enjoys turning ideas into products people actually use. Over the past four years, I&apos;ve partnered with startups, businesses, and cross-functional teams to build fintech platforms, food delivery apps, flight booking systems, and other digital products from concept to launch.
+            <br />
+            <br />
             I thrive in collaborative environments where designers, developers, and stakeholders work closely together to solve real problems. Whether I&apos;m designing user experiences in Figma, architecting backend systems, or shipping polished frontend interfaces, I care about building software that is reliable, scalable, and genuinely useful.
             </p>
             <div className="flex flex-col gap-1.5 mt-2">
