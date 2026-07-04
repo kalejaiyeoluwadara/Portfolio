@@ -1,37 +1,21 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
+import { fadeUp, viewportOnce } from "@/lib/motion";
 
-function Reveal({ children }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
-  const mainControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-    }
-  }, [isInView, mainControls]);
-
+// Reveals children once, with the site's shared easing. No re-trigger on scroll back.
+function Reveal({ children, className = "", delay = 0 }) {
   return (
-    <div className="relative">
-      <motion.div
-        ref={ref}
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        initial="hidden"
-        animate={mainControls}
-        transition={{
-          duration: 0.8,
-          delay: 0.25,
-        }}
-      >
-        {children}
-      </motion.div>
-    </div>
+    <motion.div
+      className={className}
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+      transition={{ delay }}
+    >
+      {children}
+    </motion.div>
   );
 }
 

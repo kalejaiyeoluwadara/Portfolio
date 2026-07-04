@@ -1,141 +1,125 @@
 "use client";
 
 import React from "react";
-import { FiDownload, FiAward, FiBriefcase, FiUsers } from "react-icons/fi";
-import { BsArrowUpShort } from "react-icons/bs";
+import Image from "next/image";
+import { BsArrowUpRight } from "react-icons/bs";
 import { motion } from "framer-motion";
-import { useGlobal } from "@/context/PortfolioContext";
+import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
+import { SectionHead } from "./Work";
 
-function BackToTop() {
-  return (
-    <div className="px-1 py-1 absolute -right-[40px] sm:-right-[130px] bottom-5 text-white rounded-md bg-blue-500 hover:bg-blue-600 transition-colors duration-200">
-      <a href="#home" aria-label="Scroll back to top">
-        <BsArrowUpShort size={30} />
-      </a>
-    </div>
-  );
-}
+// What I actually work with, grouped by what it's used for — no percentages
+const stack = [
+  {
+    area: "Interfaces",
+    tools: "React · Next.js · TypeScript · Tailwind CSS · Framer Motion",
+    proof: "Every project on this page",
+  },
+  {
+    area: "Mobile",
+    tools: "React Native · Flutter",
+    proof: "Cross-platform product work",
+  },
+  {
+    area: "Servers & data",
+    tools: "Node.js · Express · Golang · ASP.NET · MongoDB · Firebase",
+    proof: "Pocketly, IluEats, BUCC platforms",
+  },
+  {
+    area: "Design",
+    tools: "Figma · Blender · Photoshop",
+    proof: "I design what I build",
+  },
+];
+
+const services = [
+  "Product design → working software, owned end-to-end",
+  "Interface engineering with real motion design",
+  "APIs, data models, and the systems behind the screen",
+];
 
 function About() {
-  const { darkmode } = useGlobal();
-
   return (
-    <section id="about" className="w-full flex items-center justify-center py-16 sm:py-24">
-      <div className="relative justify-center items-center flex flex-col gap-10 w-[90%] sm:w-[80%]">
-        
-        {/* Section Header */}
-        <div className="flex flex-col items-center justify-center">
-          <h2 className={`font-bold sm:text-[50px] text-[30px] leading-tight ${
-            darkmode ? "text-white" : "text-gray-900"
-          }`}>
-            About Me
-          </h2>
-          <p className={`font-semibold sm:text-[18px] text-[14px] mt-1 tracking-wider uppercase opacity-70 ${
-            darkmode ? "text-indigo-400" : "text-blue-600"
-          }`}>
-            My introduction
-          </p>
-        </div>
+    <section id="about" className="mx-auto w-full max-w-[1100px] px-5 sm:px-8 py-20 sm:py-28">
+      <SectionHead index="02" label="About" />
 
-        {/* Main Content Layout */}
-        <div className="flex justify-between sm:flex-row flex-col gap-[50px] sm:gap-[80px] lg:gap-[120px] items-center w-full mt-4">
-          
-          {/* Creative Profile Picture Frame */}
-          <div className="relative group flex-shrink-0">
-            {/* Background offset card */}
-            <div className={`absolute inset-0 rounded-2xl rotate-6 scale-95 opacity-80 blur-[1px] transition-all duration-300 group-hover:rotate-3 group-hover:scale-100 ${
-              darkmode ? "bg-indigo-600/50" : "bg-blue-500/40"
-            }`} />
-            
-            {/* Foreground card */}
-            <motion.div
-              whileHover={{ y: -6, rotate: -2 }}
-              transition={{ duration: 0.3 }}
-              className={`relative rounded-2xl overflow-hidden border shadow-xl bg-slate-900/10 cursor-pointer w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] ${
-                darkmode ? "border-slate-800" : "border-slate-200"
-              }`}
-            >
-              <img
-                src="/pi.jpg"
-                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-                alt="About Me Portrait"
-                loading="lazy"
-              />
-            </motion.div>
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+        {/* Portrait */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="lg:col-span-4"
+        >
+          <div className="relative aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-xl border border-line">
+            <Image
+              src="/pi.jpg"
+              alt="Oluwadara Kalejaiye"
+              fill
+              sizes="(max-width: 1024px) 100vw, 340px"
+              className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
+            />
           </div>
+        </motion.div>
 
-          {/* Details & Biography */}
-          <div className="flex flex-col gap-8 px-4 sm:px-0 sm:items-start items-center flex-grow max-w-[500px]">
-            <div className="flex flex-col gap-3">
-              <h3 className={`text-lg sm:text-xl font-bold tracking-tight text-center sm:text-start leading-tight ${
-                darkmode ? "text-indigo-300" : "text-blue-600"
-              }`}>
-                Bridging aesthetics and modern software architecture.
-              </h3>
-              <p
-                className={`text-sm sm:text-[15px] leading-relaxed text-center sm:text-start font-medium ${
-                  darkmode ? "text-slate-300" : "text-slate-600"
-                }`}
-              >
-                Hello! I'm Oluwadara, a full-stack engineer and designer who loves building systems that run efficiently and look stunning. My journey is driven by curiosity and a commitment to quality, turning complex requirements into simple, beautiful digital products.
-              </p>
+        {/* Bio + stack ledger */}
+        <motion.div
+          variants={stagger(0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="flex flex-col gap-10 lg:col-span-8"
+        >
+          <motion.div variants={fadeUp} className="flex flex-col gap-4">
+            <h3 className="font-display-md max-w-[560px] text-[26px] sm:text-[32px] leading-[1.15]">
+              I care about the whole product — the pixels and the plumbing.
+            </h3>
+            <p className="max-w-[560px] text-[15px] leading-relaxed text-coal/70 dark:text-cream/70">
+              I&apos;m Oluwadara Kalejaiye, a full-stack engineer and designer.
+              For the past four years I&apos;ve been shipping software people
+              rely on — fintech flows, food delivery, event and voting systems —
+              usually owning everything from the Figma file to the database
+              schema. I like small teams, fast iteration, and products with a
+              real community behind them.
+            </p>
+            <div className="flex flex-col gap-1.5 mt-2">
+              {services.map((s) => (
+                <p key={s} className="font-mono text-[12px] text-muted">
+                  → {s}
+                </p>
+              ))}
             </div>
+          </motion.div>
 
-            {/* Glassmorphic Metrics Card Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-3 gap-3 sm:gap-4 w-full"
-            >
-              {/* Experience Card */}
-              <div className={`gls rounded-xl p-3 flex flex-col items-center justify-center text-center border shadow-sm transition-shadow hover:shadow-md ${
-                darkmode ? "bg-slate-900/50 border-slate-800/80" : "bg-white/50 border-slate-200"
-              }`}>
-                <FiAward size={20} className="text-indigo-500 dark:text-indigo-400 mb-1.5" />
-                <h4 className={`font-bold text-base sm:text-lg leading-tight ${darkmode ? "text-white" : "text-slate-900"}`}>04+</h4>
-                <p className="text-[10px] sm:text-xs font-semibold opacity-70 mt-0.5 leading-none">Experience</p>
-              </div>
+          {/* Stack ledger */}
+          <motion.div variants={fadeUp}>
+            <p className="eyebrow mb-2">What I work with</p>
+            <div className="border-t border-line">
+              {stack.map((row) => (
+                <div
+                  key={row.area}
+                  className="grid grid-cols-1 gap-x-6 gap-y-0.5 border-b border-line py-4 sm:grid-cols-[140px_1fr_auto]"
+                >
+                  <p className="font-display-md text-[15px]">{row.area}</p>
+                  <p className="text-[13px] text-coal/70 dark:text-cream/70">{row.tools}</p>
+                  <p className="hidden font-mono text-[11px] text-muted sm:block">
+                    {row.proof}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-              {/* Projects Card */}
-              <div className={`gls rounded-xl p-3 flex flex-col items-center justify-center text-center border shadow-sm transition-shadow hover:shadow-md ${
-                darkmode ? "bg-slate-900/50 border-slate-800/80" : "bg-white/50 border-slate-200"
-              }`}>
-                <FiBriefcase size={20} className="text-indigo-500 dark:text-indigo-400 mb-1.5" />
-                <h4 className={`font-bold text-base sm:text-lg leading-tight ${darkmode ? "text-white" : "text-slate-900"}`}>30+</h4>
-                <p className="text-[10px] sm:text-xs font-semibold opacity-70 mt-0.5 leading-none">Projects</p>
-              </div>
-
-              {/* Companies Card */}
-              <div className={`gls rounded-xl p-3 flex flex-col items-center justify-center text-center border shadow-sm transition-shadow hover:shadow-md ${
-                darkmode ? "bg-slate-900/50 border-slate-800/80" : "bg-white/50 border-slate-200"
-              }`}>
-                <FiUsers size={20} className="text-indigo-500 dark:text-indigo-400 mb-1.5" />
-                <h4 className={`font-bold text-base sm:text-lg leading-tight ${darkmode ? "text-white" : "text-slate-900"}`}>04+</h4>
-                <p className="text-[10px] sm:text-xs font-semibold opacity-70 mt-0.5 leading-none">Clients</p>
-              </div>
-            </motion.div>
-
-            {/* CV Download CTA */}
-            <motion.a
-              whileTap={{ scale: 0.96 }}
-              whileHover={{ scale: 1.02 }}
-              target="_blank"
-              href="https://docs.google.com/document/d/1rahYuOiUbKHWYQsAepw7IB9eFY5HCF3g/edit?usp=sharing&ouid=113363007071290601963&rtpof=true&sd=true"
-              rel="noopener noreferrer"
-              className={`w-[180px] h-[52px] flex items-center justify-center gap-3 text-white rounded-xl font-bold transition-all duration-300 shadow-md ${
-                darkmode 
-                  ? "bg-indigo-600 hover:bg-indigo-500 shadow-indigo-500/20" 
-                  : "bg-blue-600 hover:bg-blue-700 shadow-blue-500/20"
-              }`}
-            >
-              Download CV 
-              <FiDownload size={18} className="animate-bounce" style={{ animationDuration: '2s' }} />
-            </motion.a>
-          </div>
-        </div>
-        <BackToTop />
+          <motion.a
+            variants={fadeUp}
+            href="https://docs.google.com/document/d/1rahYuOiUbKHWYQsAepw7IB9eFY5HCF3g/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link inline-flex w-fit items-center gap-1.5 text-[13px] font-semibold"
+          >
+            View CV <BsArrowUpRight size={12} />
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

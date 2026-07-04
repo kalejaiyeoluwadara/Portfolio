@@ -13,20 +13,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mi Portfolio | Dara",
-  description: "Oluwadara's professional portfolio, software engineering and product design showcase.",
+  title: "Oluwadara Kalejaiye — Full-Stack Engineer & Designer",
+  description:
+    "Full-stack engineer and designer building fintech, food delivery, and community platforms across Nigeria. Selected work: Pocketly, Tetra Pay, IluEats.",
+  openGraph: {
+    title: "Oluwadara Kalejaiye — Full-Stack Engineer & Designer",
+    description:
+      "Full-stack engineer and designer building products people actually use.",
+    type: "website",
+  },
 };
+
+// Runs before paint: applies the saved theme (dark by default) to avoid a flash
+const themeInit = `(function(){try{var t=localStorage.getItem("portfolio-theme");if(t!=="light"){document.documentElement.classList.add("dark")}}catch(e){document.documentElement.classList.add("dark")}})()`;
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        <PortfolioProvider>
-          {children}
-        </PortfolioProvider>
+      <body className="min-h-full flex flex-col grain">
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <PortfolioProvider>{children}</PortfolioProvider>
       </body>
     </html>
   );

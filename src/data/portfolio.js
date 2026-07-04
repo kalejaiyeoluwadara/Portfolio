@@ -1,68 +1,88 @@
+// Featured entries get the large case-study treatment; the rest render in the archive list.
 const portfolioData = [
   {
-    name: "Jenick Travels",
-    info: "A premium travel and tour agency portal featuring seamless flight booking interfaces, comprehensive visa processing guides, and educational travel consulting services.",
-    img: "/jenick.png",
-    link: "https://jenicktravels.com/",
-    category: "Frontend",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"]
-  },
-  {
-    name: "IluEats",
-    info: "A hyper-local food delivery web application connecting residents of Ilisan, Nigeria to local restaurants, cafes, and bakeries with real-time checkout and cart management.",
-    img: "/ilueats.png",
-    link: "https://ilueats.vercel.app/",
-    category: "Fullstack",
-    tags: ["Next.js", "Tailwind CSS", "Mobile-First"]
-  },
-  {
-    name: "Ren Reviews",
-    info: "A fullstack feedback platform enabling companies to easily collect, manage, and share authentic customer reviews in real-time.",
-    img: "/ren.png",
-    link: "https://ren-eight.vercel.app/",
-    category: "Fullstack",
-    tags: ["React"]
-  },
-  {
     name: "Pocketly",
-    info: "A smart expense tracker and budget manager featuring AI spending insights, financial reports, and custom pockets to effortlessly monitor and optimize your personal finances.",
+    featured: true,
+    year: "2025",
+    role: "Design & full-stack build",
+    info: "A personal finance app with AI spending insights, custom budget pockets, and financial reports. Built end-to-end: product design, frontend, data layer, and the AI analytics pipeline.",
     img: "/pocketly.png",
-    link: "https://pocketly.space/auth?callbackUrl=%2F",
+    link: "https://pocketly.space",
     category: "AI & Tools",
-    tags: ["Next.js", "Tailwind CSS", "Recharts", "AI Analytics"]
-  },
-  {
-    name: "SkyBoard Games",
-    info: "Nigeria's premier competitive gaming arena where players challenge celebrities, join global tournaments in Chess, Ludo, and Snooker, and win cash prizes.",
-    img: "/skyboard.png",
-    link: "https://skyboardgames.com/",
-    category: "Frontend",
-    tags: ["Bootstrap 5", "HTML5", "CSS3", "JavaScript"]
+    tags: ["Next.js", "Tailwind CSS", "Recharts", "AI Analytics"],
   },
   {
     name: "Tetra Pay",
-    info: "A modern fintech landing page and flow designed to make contactless payments effortless and seamless for users across Africa.",
+    featured: true,
+    year: "2024",
+    role: "Frontend & motion design",
+    info: "Landing page and onboarding flow for a contactless payments product serving users across Africa. Owned the visual language, interaction design, and implementation.",
     img: "/tetra.png",
     link: "https://www.paywithtetra.com/",
-    category: "Frontend",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "UI/UX"]
+    category: "Fintech",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
   {
-    name: "NexGen Academy Website",
-    info: "Official responsive portal built to nurture tech talent, showcasing courses, bootcamps, and a student registration system.",
-    img: "/nexgen.png",
-    link: "https://nexgen-academy-nu.vercel.app/",
-    category: "Frontend",
-    tags: ["React", "Vite", "Tailwind CSS", "Responsive Design"]
+    name: "IluEats",
+    featured: true,
+    year: "2024",
+    role: "Design & full-stack build",
+    info: "A hyper-local food delivery app connecting residents of Ilisan, Nigeria to nearby restaurants and bakeries — cart, checkout, and order flow built mobile-first for the people who actually use it.",
+    img: "/ilueats.png",
+    link: "https://ilueats.vercel.app/",
+    category: "Fullstack",
+    tags: ["Next.js", "Tailwind CSS", "Mobile-First"],
   },
   {
-    name: "MyHomeEtal Admin Webapp",
-    info: "Enterprise admin dashboard featuring Server-Side Rendering (SSR), data caching, employee management, and complex sales analytics.",
+    name: "SkyBoard Games",
+    year: "2024",
+    role: "Frontend",
+    info: "Competitive gaming arena where players challenge celebrities and join tournaments in Chess, Ludo, and Snooker.",
+    img: "/skyboard.png",
+    link: "https://skyboardgames.com/",
+    category: "Frontend",
+    tags: ["JavaScript", "Bootstrap 5"],
+  },
+  {
+    name: "MyHomeEtal Admin",
+    year: "2024",
+    role: "Fullstack",
+    info: "Enterprise admin dashboard with SSR, data caching, employee management, and sales analytics.",
     img: "/homeetal.png",
     link: "https://myhomeetal-admin-brown.vercel.app/",
     category: "Fullstack",
-    tags: ["Next.js", "Tailwind CSS", "Server Actions", "REST APIs"]
-  }
+    tags: ["Next.js", "Server Actions"],
+  },
+  {
+    name: "Jenick Travels",
+    year: "2023",
+    role: "Frontend",
+    info: "Travel and tour agency portal with flight booking interfaces and visa processing guides.",
+    img: "/jenick.png",
+    link: "https://jenicktravels.com/",
+    category: "Frontend",
+    tags: ["Next.js", "Framer Motion"],
+  },
+  {
+    name: "Ren Reviews",
+    year: "2023",
+    role: "Fullstack",
+    info: "Feedback platform for companies to collect, manage, and share customer reviews in real time.",
+    img: "/ren.png",
+    link: "https://ren-eight.vercel.app/",
+    category: "Fullstack",
+    tags: ["React"],
+  },
+  {
+    name: "NexGen Academy",
+    year: "2023",
+    role: "Frontend",
+    info: "Responsive portal for a tech academy — courses, bootcamps, and student registration.",
+    img: "/nexgen.png",
+    link: "https://nexgen-academy-nu.vercel.app/",
+    category: "Frontend",
+    tags: ["React", "Vite"],
+  },
 ];
 
 export default portfolioData;

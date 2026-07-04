@@ -1,93 +1,76 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { BsMoonFill, BsSun } from "react-icons/bs";
+import React, { useEffect, useState } from "react";
+import { BsMoonStars, BsSun } from "react-icons/bs";
 import { useGlobal } from "@/context/PortfolioContext";
 
+const LINKS = [
+  { href: "#work", label: "Work" },
+  { href: "#about", label: "About" },
+  { href: "#community", label: "Community" },
+  { href: "#contact", label: "Contact" },
+];
+
 const Navbar = () => {
-  const { darkmode, toggleDarkMode } = useGlobal();
+  const { darkmode, toggleDarkMode, setPaletteOpen } = useGlobal();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    
-    // Check on mount in case the page is already scrolled
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <nav
-      className={`hidden sm:flex items-center w-full fixed top-0 z-20 justify-center transition-all duration-300 ${
+    <header
+      className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? darkmode
-            ? "glassb border-b border-slate-800/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]"
-            : "glass border-b border-slate-200/60 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)]"
-          : "bg-transparent border-b border-transparent shadow-none"
+          ? "bg-paper/80 dark:bg-ink/80 backdrop-blur-md border-b border-line"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div
-        className={`sm:w-[80%] relative w-full flex font-medium justify-between items-center px-4 transition-all duration-300 ${
-          scrolled ? "py-4" : "py-6"
+      <nav
+        className={`mx-auto flex w-full max-w-[1100px] items-center justify-between px-5 sm:px-8 transition-all duration-500 ${
+          scrolled ? "py-3.5" : "py-6"
         }`}
       >
-        <div className="font-bold text-[20px] tracking-tight cursor-default select-none">
-          Dara
-        </div>
-        <div className="flex gap-3 sm:gap-8 items-center">
-          <a href="#home">
-            <p className="opacity-80 transition-all duration-300 font-semibold cursor-pointer hover:opacity-100 hover:text-indigo-500 active:scale-95">
-              Home
-            </p>
-          </a>
-          <a href="#about">
-            <p className="opacity-80 transition-all duration-300 font-semibold cursor-pointer hover:opacity-100 hover:text-indigo-500 active:scale-95">
-              About
-            </p>
-          </a>
-          <a href="#sk">
-            <p className="opacity-80 transition-all duration-300 font-semibold cursor-pointer hover:opacity-100 hover:text-indigo-500 active:scale-95">
-              Skills
-            </p>
-          </a>
-          <a href="#ser">
-            <p className="opacity-80 transition-all duration-300 font-semibold cursor-pointer hover:opacity-100 hover:text-indigo-500 active:scale-95">
-              Services
-            </p>
-          </a>
-          <a href="#portfolio">
-            <p className="opacity-80 transition-all duration-300 font-semibold cursor-pointer hover:opacity-100 hover:text-indigo-500 active:scale-95">
-              Portfolio
-            </p>
-          </a>
-          <a href="#community">
-            <p className="opacity-80 transition-all duration-300 font-semibold cursor-pointer hover:opacity-100 hover:text-indigo-500 active:scale-95">
-              Community
-            </p>
-          </a>
-          <a href="#cont">
-            <p className="opacity-80 transition-all duration-300 font-semibold cursor-pointer hover:opacity-100 hover:text-indigo-500 active:scale-95">
-              Contactme
-            </p>
-          </a>
+        <a href="#home" className="font-display-md text-[17px] tracking-tight">
+          Oluwadara Kalejaiye
+        </a>
+
+        <div className="flex items-center gap-5 sm:gap-7">
+          <div className="hidden sm:flex items-center gap-7">
+            {LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="nav-link text-[13px] font-medium text-coal/70 hover:text-coal dark:text-cream/70 dark:hover:text-cream transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <button
+            onClick={() => setPaletteOpen(true)}
+            aria-label="Open command palette"
+            className="flex items-center gap-2 rounded-lg border border-line px-2.5 py-1.5 text-[12px] font-medium text-muted hover:text-coal hover:border-muted dark:hover:text-cream transition-colors cursor-pointer"
+          >
+            <span className="sm:hidden">Menu</span>
+            <span className="hidden sm:inline font-mono text-[11px]">⌘K</span>
+          </button>
+
           <button
             onClick={toggleDarkMode}
-            className="cursor-pointer focus:outline-none p-1.5 rounded-lg hover:bg-slate-100/10 transition-all active:scale-90"
-            aria-label="Toggle dark mode"
+            aria-label="Toggle theme"
+            className="text-coal/70 hover:text-coal dark:text-cream/70 dark:hover:text-cream transition-colors cursor-pointer active:scale-90"
           >
-            {darkmode ? <BsSun size={18} /> : <BsMoonFill size={18} />}
+            {darkmode ? <BsSun size={16} /> : <BsMoonStars size={15} />}
           </button>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
