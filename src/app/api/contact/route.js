@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import clientPromise from "@/lib/mongodb";
+import { sendContactEmail } from "@/lib/mailer";
 
 export async function GET() {
   const cookieStore = await cookies();
@@ -42,6 +43,14 @@ export async function POST(request) {
       message,
       createdAt: new Date(),
     });
+
+    // Notify by email. Don't fail the request if the mail send errors —
+    // the message is already saved to the database.
+    try {
+      await sendContactEmail({ name, email, message });
+    } catch (mailError) {
+      console.error("Error sending notification email:", mailError);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
