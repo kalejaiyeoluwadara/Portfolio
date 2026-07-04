@@ -3,6 +3,23 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { BsArrowUpRight } from "react-icons/bs";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiFramer,
+  SiFlutter,
+  SiNodedotjs,
+  SiExpress,
+  SiNestjs,
+  SiDotnet,
+  SiMongodb,
+  SiFirebase,
+  SiFigma,
+  SiBlender,
+} from "react-icons/si";
+import { DiPhotoshop } from "react-icons/di";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { EASE, fadeUp, stagger, viewportOnce } from "@/lib/motion";
 import { SectionHead } from "./Work";
@@ -64,21 +81,25 @@ const stack = [
   {
     area: "Interfaces",
     tools: "React · Next.js · TypeScript · Tailwind CSS · Framer Motion",
+    logos: [SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiFramer],
     proof: "Every project on this page",
   },
   {
     area: "Mobile",
     tools: "React Native · Flutter",
+    logos: [SiReact, SiFlutter],
     proof: "Cross-platform product work",
   },
   {
     area: "Servers & data",
-    tools: "Node.js · Express · Golang · ASP.NET · MongoDB · Firebase",
+    tools: "Node.js · Express · Nestjs · ASP.NET · MongoDB · Firebase",
+    logos: [SiNodedotjs, SiExpress, SiNestjs, SiDotnet, SiMongodb, SiFirebase],
     proof: "Pocketly, IluEats, BUCC platforms",
   },
   {
     area: "Design",
     tools: "Figma · Blender · Photoshop",
+    logos: [SiFigma, SiBlender, DiPhotoshop],
     proof: "I design what I build",
   },
 ];
@@ -119,12 +140,8 @@ function About() {
               I care about the whole product — the pixels and the plumbing.
             </h3>
             <p className="max-w-[560px] text-[15px] leading-relaxed text-coal/70 dark:text-cream/70">
-              I&apos;m Oluwadara Kalejaiye, a full-stack engineer and designer.
-              For the past four years I&apos;ve been shipping software people
-              rely on — fintech flows, food delivery, event and voting systems —
-              usually owning everything from the Figma file to the database
-              schema. I like small teams, fast iteration, and products with a
-              real community behind them.
+            I&apos;m Oluwadara Kalejaiye, a full-stack engineer and product designer who enjoys turning ideas into products people actually use. Over the past four years, I&apos;ve partnered with startups, businesses, and cross-functional teams to build fintech platforms, food delivery apps, flight booking systems, and other digital products from concept to launch.
+            I thrive in collaborative environments where designers, developers, and stakeholders work closely together to solve real problems. Whether I&apos;m designing user experiences in Figma, architecting backend systems, or shipping polished frontend interfaces, I care about building software that is reliable, scalable, and genuinely useful.
             </p>
             <div className="flex flex-col gap-1.5 mt-2">
               {services.map((s) => (
@@ -145,7 +162,18 @@ function About() {
                   className="grid grid-cols-1 gap-x-6 gap-y-0.5 border-b border-line py-4 sm:grid-cols-[140px_1fr_auto]"
                 >
                   <p className="font-display-md text-[15px]">{row.area}</p>
-                  <p className="text-[13px] text-coal/70 dark:text-cream/70">{row.tools}</p>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      {row.logos.map((Logo, i) => (
+                        <Logo
+                          key={i}
+                          size={15}
+                          className="text-coal/60 dark:text-cream/60"
+                        />
+                      ))}
+                    </div>
+                    <p className="text-[13px] text-coal/70 dark:text-cream/70">{row.tools}</p>
+                  </div>
                   <p className="hidden font-mono text-[11px] text-muted sm:block">
                     {row.proof}
                   </p>
