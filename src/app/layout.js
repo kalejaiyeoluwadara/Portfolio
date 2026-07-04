@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { PortfolioProvider } from "@/context/PortfolioContext";
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col grain">
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <PortfolioProvider>{children}</PortfolioProvider>
+        <Analytics />
       </body>
     </html>
   );
