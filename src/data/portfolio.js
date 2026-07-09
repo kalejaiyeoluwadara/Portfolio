@@ -29,9 +29,9 @@ const portfolioData = [
     role: "Design & full-stack build",
     info: "A hyper-local food delivery app connecting residents of Ilisan, Nigeria to nearby restaurants and bakeries — cart, checkout, and order flow built mobile-first for the people who actually use it.",
     img: "/ilu.png",
-    link: "https://ilueats.vercel.app/",
+    link: "https://ilueats.com",
     category: "Fullstack",
-    tags: ["Next.js", "Tailwind CSS", "Mobile-First"],
+    tags: ["Next.js","Nest.js", "Tailwind CSS", "Mobile-First"],
   },
   {
     name: "Pocketly",
