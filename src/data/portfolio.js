@@ -27,7 +27,7 @@ const portfolioData = [
     featured: true,
     year: "2026",
     role: "Design & full-stack build",
-    info: "An artisan discovery platform connecting residents of Ilisan, Nigeria to vetted hand workers — plumbers, tilers, solar installers, and more. Browse, unlock verified contacts for ₦500, and hire directly. Built mobile-first for the people who actually use it.",
+    info: "An artisan discovery platform connecting residents to vetted hand workers — plumbers, tilers, solar installers, and more. Browse, unlock verified contacts, and hire directly.",
     img: "/artiza.png",
     link: "https://artiza-cyan.vercel.app",
     category: "Fullstack",
